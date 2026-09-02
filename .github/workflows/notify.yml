@@ -1,0 +1,41 @@
+# Rebuild the registry index because a plugin changed.
+#
+# Every plugin repository calls this on a push to its default branch or a version tag:
+#
+#   jobs:
+#     notify:
+#       uses: scm-js/registry/.github/workflows/notify.yml@main
+#       secrets: inherit
+#
+# so the one place that knows how to reach the registry is here rather than copied into
+# each of them. It exists because a repository's own GITHUB_TOKEN cannot start a workflow
+# in another repository: REGISTRY_PAT is an organisation secret holding a fine-grained
+# token with Contents: write on scm-js/registry and nothing else.
+#
+# Without this the hourly schedule still picks the change up; this only shortens the wait.
+name: Notify registry
+
+on:
+  workflow_call:
+    secrets:
+      REGISTRY_PAT:
+        description: "Token with Contents: write on scm-js/registry."
+        required: true
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      # The payload is passed through the environment, never interpolated into the script:
+      # a ref is named by whoever pushed the tag.
+      - name: Ask the registry to rebuild
+        env:
+          GH_TOKEN: ${{ secrets.REGISTRY_PAT }}
+          SRC_REPO: ${{ github.repository }}
+          SRC_REF: ${{ github.ref }}
+        run: |
+          gh api repos/scm-js/registry/dispatches \
+            -f event_type=plugin-updated \
+            -f "client_payload[repo]=$SRC_REPO" \
+            -f "client_payload[ref]=$SRC_REF"
+          echo "Asked scm-js/registry to rebuild for $SRC_REPO @ $SRC_REF."

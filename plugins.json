@@ -1,6 +1,13 @@
 {
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
+  "discover": {
+    "org": "scm-js",
+    "topics": ["scmjs", "plugin"]
+  },
+  "exclude": [
+    "scm-js/plugin-ai"
+  ],
   "plugins": [
     {
       "repo": "scm-js/plugin-scm-scx",
@@ -36,6 +43,10 @@
       "repo": "scm-js/plugin-melee-wizard",
       "tags": ["melee", "start locations", "bases"],
       "default": true
+    },
+    {
+      "repo": "scm-js/plugin-hello-world",
+      "tags": ["example", "template"]
     }
   ]
 }

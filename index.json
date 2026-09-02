@@ -2,8 +2,25 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-02T15:29:25.937Z",
+  "generated": "2026-09-02T16:13:06.475Z",
   "plugins": [
+    {
+      "spec": "github:scm-js/plugin-hello-world",
+      "name": "Hello World",
+      "version": "1.0.0",
+      "description": "An example plugin to copy from. It adds one Tools menu item that opens a small pane showing the name of the map you have open.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-hello-world",
+      "homepage": "https://github.com/scm-js/plugin-hello-world",
+      "icon": "👋",
+      "api": 1,
+      "tags": [
+        "example",
+        "template"
+      ],
+      "commit": "4a836e053e365b9c2d717289a501cf59549c4b19",
+      "updated": "2026-09-02T02:22:03Z"
+    },
     {
       "spec": "github:scm-js/plugin-melee-wizard",
       "name": "Melee Wizard",
@@ -19,6 +36,7 @@
         "start locations",
         "bases"
       ],
+      "tag": "v1.0.0",
       "commit": "4584689b288e7031a6d244f103d9a0332657ed07",
       "updated": "2026-09-02T07:02:56Z",
       "default": true
@@ -39,6 +57,7 @@
         "drawing",
         "tools"
       ],
+      "tag": "v1.0.0",
       "commit": "7ebd20953f38a2963901cd5b2e05ce609bce0194",
       "updated": "2026-09-02T06:04:38Z",
       "default": true
@@ -47,7 +66,7 @@
       "spec": "github:scm-js/plugin-repair",
       "name": "Repair",
       "version": "1.0.0",
-      "description": "Open a map and it tells you what is wrong with it: pieces missing or damaged, the tricks protected maps play, terrain the editor cannot edit. Each problem says what the game makes of the map as it stands and what fixing it would change, and it repairs the ones you tick. Restore original puts the file back as it opened.",
+      "description": "Checks a map file the way the game reads it when it opens — missing, damaged, repeated and oddly sized sections, header values the game cannot use, a stripped or stale ISOM — says what the game does with each, and repairs what you tick. The original file stays at hand until the next map opens.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-repair",
       "homepage": "https://github.com/scm-js/plugin-repair",
@@ -58,8 +77,9 @@
         "protection",
         "sections"
       ],
-      "commit": "a7f34115e05cd21326a66aa2cede40967319b689",
-      "updated": "2026-09-02T15:16:24Z",
+      "tag": "v1.0.0",
+      "commit": "6cd40044030d2f66dd0c396da39df4defa1361a7",
+      "updated": "2026-09-02T15:11:23Z",
       "default": true
     },
     {
@@ -77,6 +97,7 @@
         "search",
         "download"
       ],
+      "tag": "v1.0.0",
       "commit": "e4f1a350fb2ddc78be7fdd9aeded3d66bfacad09",
       "updated": "2026-09-02T06:04:53Z",
       "default": true
@@ -96,6 +117,7 @@
         "hex",
         "file format"
       ],
+      "tag": "v1.0.0",
       "commit": "eef09e7b8abdf6aa976f552d3106988c201f1167",
       "updated": "2026-09-02T06:04:53Z",
       "default": true
@@ -115,6 +137,7 @@
         "import",
         "image"
       ],
+      "tag": "v1.0.0",
       "commit": "2dd696fd9e6a74d712f3e69133714b3fb97df8a9",
       "updated": "2026-09-02T06:04:53Z",
       "default": true
@@ -134,6 +157,7 @@
         "melee",
         "overlay"
       ],
+      "tag": "v1.1.0",
       "commit": "007f460a125d797397ea58e084b5a1f101819ab0",
       "updated": "2026-09-02T07:31:18Z",
       "default": true

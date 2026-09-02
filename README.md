@@ -4,11 +4,27 @@ The list of plugins [scm-js](https://github.com/scm-js/scm-js) offers to install
 editor fetches [`index.json`](index.json) when you open **Plugins ▸ Browse Plugins…**,
 searches it, and installs from it.
 
-`index.json` is generated. The file a person edits is [`plugins.json`](plugins.json) —
-which repositories are listed — and everything else is read from the plugins themselves:
-each entry's name, version, description, author and icon come from that plugin's own
-`plugin.json` at the head of its default branch, so nothing here can drift from what its
-author wrote.
+`index.json` is generated. Which repositories are plugins is asked of GitHub: every
+public, non-archived repository in the [scm-js](https://github.com/scm-js) organisation
+carrying both the `scmjs` and `plugin` topics is one. Everything an entry says about a
+plugin is read from the plugin itself — name, version, description, author and icon come
+from its own `plugin.json` — so nothing here can drift from what its author wrote.
+[`plugins.json`](plugins.json) holds only what the topics cannot say: search tags, which
+plugins the editor ships as defaults, repositories outside the organisation, and anything
+to leave out.
+
+## Which commit an entry describes
+
+The newest semver tag is the release. An entry's `commit`, `version` and `updated` come
+from that tag, so pushing to a plugin's default branch does not change what Browse shows
+until you tag it. A repository that has never been tagged falls back to its default
+branch, which is what makes a brand new plugin appear before its first release.
+
+The tag never reaches `spec`, which stays floating (`github:owner/name`). The editor
+matches a Browse row against the installed list by that string, and a spec carrying
+`@v1.0.0` would not match the same plugin installed from its branch. So `commit` and
+`tag` describe the release; the pin an install actually takes is resolved at install
+time and may be newer.
 
 ## What being listed means
 
@@ -21,7 +37,11 @@ never what is trusted.
 
 ## Adding a plugin
 
-Open a pull request adding an entry to `plugins.json`:
+For a repository in the scm-js organisation, give it the `scmjs` and `plugin` topics.
+That is the whole step — the next build lists it, and taking the topics off unlists it.
+
+For one anywhere else, or to give a plugin search tags, open a pull request adding an
+entry to `plugins.json`:
 
 ```json
 {
@@ -38,21 +58,46 @@ Open a pull request adding an entry to `plugins.json`:
 - `default` — true only for the plugins the editor ships with (`src/plugins/defaults.ts`);
   it is what puts the *default* badge on the row.
 
+An entry for a repository the topics already found is an override: it adds the tags and
+the default flag, and the plugin is still listed once. `exclude` is the other way round —
+a list of `owner/name` to leave out however they are found.
+
 The plugin needs a `plugin.json` with at least a `name`, and should carry `version`,
 `description`, `author` and `icon`. See
 [`docs/plugins.md`](https://github.com/scm-js/scm-js/blob/main/docs/plugins.md).
 
-The index is rebuilt hourly, on a push to `plugins.json`, and on demand — so a new
-version of a listed plugin appears in Browse within the hour without anything being
-changed here. A plugin repository can also push the update through immediately:
+A plugin that stops answering keeps its last known entry rather than disappearing on a
+network blink.
+
+## When it rebuilds
+
+Hourly, on a push to `plugins.json` or the generator, on demand, and whenever a plugin
+repository says it changed. That last one is [`notify.yml`](.github/workflows/notify.yml),
+which each plugin repository calls from a workflow of its own:
+
+```yaml
+name: Notify registry
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+jobs:
+  notify:
+    uses: scm-js/registry/.github/workflows/notify.yml@main
+    secrets: inherit
+```
+
+It exists because a repository's own `GITHUB_TOKEN` cannot start a workflow in another
+repository. `REGISTRY_PAT` is an organisation secret holding a fine-grained token with
+`Contents: write` on this repository and nothing else; `secrets: inherit` is what passes
+it through. Anything with write access here can do the same by hand:
 
 ```sh
 gh api repos/scm-js/registry/dispatches -f event_type=plugin-updated
 ```
 
-To be removed from the list, open a pull request taking the entry out (or an issue). A
-plugin that stops answering keeps its last known entry rather than disappearing on a
-network blink.
+None of this is load-bearing — the hourly schedule picks every change up anyway. It only
+shortens the wait from up to an hour to about a minute.
 
 ## The file
 
@@ -73,7 +118,8 @@ network blink.
     "icon": "icon.svg",              // as the manifest wrote it, resolved by the editor
     "api": 1,                        // the plugin API version it needs
     "tags": ["terrain", "drawing"],
-    "commit": "7ebd209…",            // the commit this entry was read from
+    "tag": "v1.0.0",                 // the release this entry was read from
+    "commit": "7ebd209…",            // the commit that tag points at
     "updated": "2026-09-01T18:22:03Z",
     "default": true
   }]
@@ -81,9 +127,8 @@ network blink.
 ```
 
 `spec` is the only field the editor installs from, and it is an ordinary plugin address:
-anything you could paste into **Plugins ▸ Manage Plugins**. `commit` and `updated`
-describe the version the index was built from; the pin an install actually takes is
-resolved at install time, so it may be newer.
+anything you could paste into **Plugins ▸ Manage Plugins**. An entry with no `tag` is one
+read from a repository that has never been tagged.
 
 Unknown fields are ignored, and an entry the editor cannot use is skipped rather than
 breaking the list.
