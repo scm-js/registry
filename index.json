@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-02T16:15:54.858Z",
+  "generated": "2026-09-02T16:23:27.431Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -66,7 +66,7 @@
       "spec": "github:scm-js/plugin-repair",
       "name": "Repair",
       "version": "1.0.0",
-      "description": "Checks a map file the way the game reads it when it opens — missing, damaged, repeated and oddly sized sections, header values the game cannot use, a stripped or stale ISOM — says what the game does with each, and repairs what you tick. The original file stays at hand until the next map opens.",
+      "description": "Open a map and it tells you what is wrong with it: pieces missing or damaged, the tricks protected maps play, terrain the editor cannot edit. Each problem says what the game makes of the map as it stands and what fixing it would change, and it repairs the ones you tick. Restore original puts the file back as it opened.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-repair",
       "homepage": "https://github.com/scm-js/plugin-repair",
@@ -78,8 +78,8 @@
         "sections"
       ],
       "tag": "v1.0.0",
-      "commit": "6cd40044030d2f66dd0c396da39df4defa1361a7",
-      "updated": "2026-09-02T15:11:23Z",
+      "commit": "ee4914c53cf3f49c42d9ef873fe842bd5a758729",
+      "updated": "2026-09-02T16:15:25Z",
       "default": true
     },
     {
