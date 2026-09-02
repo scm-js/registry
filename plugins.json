@@ -3,7 +3,11 @@
   "description": "The plugins published by the scm-js project.",
   "discover": {
     "org": "scm-js",
-    "topics": ["scmjs", "plugin"]
+    "prefix": "plugin-",
+    "topics": [
+      "scmjs",
+      "plugin"
+    ]
   },
   "exclude": [
     "scm-js/plugin-ai"
@@ -11,42 +15,74 @@
   "plugins": [
     {
       "repo": "scm-js/plugin-scm-scx",
-      "tags": ["maps", "search", "download"],
+      "tags": [
+        "maps",
+        "search",
+        "download"
+      ],
       "default": true
     },
     {
       "repo": "scm-js/plugin-image-to-terrain",
-      "tags": ["terrain", "import", "image"],
+      "tags": [
+        "terrain",
+        "import",
+        "image"
+      ],
       "default": true
     },
     {
       "repo": "scm-js/plugin-repair",
-      "tags": ["repair", "protection", "sections"],
+      "tags": [
+        "repair",
+        "protection",
+        "sections"
+      ],
       "default": true
     },
     {
       "repo": "scm-js/plugin-paint",
-      "tags": ["terrain", "units", "drawing", "tools"],
+      "tags": [
+        "terrain",
+        "units",
+        "drawing",
+        "tools"
+      ],
       "default": true
     },
     {
       "repo": "scm-js/plugin-section-explorer",
-      "tags": ["sections", "hex", "file format"],
+      "tags": [
+        "sections",
+        "hex",
+        "file format"
+      ],
       "default": true
     },
     {
       "repo": "scm-js/plugin-walkability",
-      "tags": ["analysis", "melee", "overlay"],
+      "tags": [
+        "analysis",
+        "melee",
+        "overlay"
+      ],
       "default": true
     },
     {
       "repo": "scm-js/plugin-melee-wizard",
-      "tags": ["melee", "start locations", "bases"],
+      "tags": [
+        "melee",
+        "start locations",
+        "bases"
+      ],
       "default": true
     },
     {
       "repo": "scm-js/plugin-hello-world",
-      "tags": ["example", "template"]
+      "tags": [
+        "example",
+        "template"
+      ]
     }
   ]
 }

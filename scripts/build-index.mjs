@@ -158,19 +158,37 @@ async function entryFor(listed, repo) {
 /* ── Discovery ──────────────────────────────────────────── */
 
 /**
- * The organisation's plugin repositories: public, not archived, carrying every topic in
- * `discover.topics`. Private repositories are skipped because the index is public and
+ * The organisation's plugin repositories: public, not archived, and either named with
+ * `discover.prefix` or carrying every topic in `discover.topics`.
+ *
+ * Two signals rather than one because they are forgotten at different rates. A name is
+ * chosen when the repository is created and is visible in every listing; topics are
+ * metadata set afterwards, and six of the eight plugins here had none until someone went
+ * back and added them. Either alone would have missed a plugin, so a repository only has
+ * to satisfy one of them.
+ *
+ * The cost of the union is that listing is opt-*out*: a repository named like a plugin and
+ * carrying a readable `plugin.json` is published without anyone saying so, and `exclude` in
+ * plugins.json is what holds one back. That is deliberate — a plugin nobody can find is a
+ * worse failure here than one listed a release early — but it is why being *listed* says
+ * nothing about a plugin having been read. `verified` is the field that does.
+ *
+ * Private repositories are skipped because the index is public and
  * `raw.githubusercontent.com` would not serve their files to the editor anyway.
  */
 async function discover(discovery, excluded) {
   if (!discovery?.org) return [];
+  const prefix = str(discovery.prefix)?.toLowerCase();
   const want = (discovery.topics ?? []).map((t) => String(t).toLowerCase());
+  if (!prefix && want.length === 0) return []; // no signal at all would match everything
   const repos = await getAll(`https://api.github.com/orgs/${discovery.org}/repos?type=public`);
   const found = [];
   for (const repo of repos) {
     if (repo.private || repo.archived) continue;
     const topics = (repo.topics ?? []).map((t) => t.toLowerCase());
-    if (!want.every((t) => topics.includes(t))) continue;
+    const named = prefix ? repo.name.toLowerCase().startsWith(prefix) : false;
+    const tagged = want.length > 0 && want.every((t) => topics.includes(t));
+    if (!named && !tagged) continue;
     if (excluded.has(repoKey(repo.full_name))) {
       console.log(`- ${repo.full_name} is excluded`);
       continue;

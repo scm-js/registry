@@ -6,7 +6,7 @@ searches it, and installs from it.
 
 `index.json` is generated. Which repositories are plugins is asked of GitHub: every
 public, non-archived repository in the [scm-js](https://github.com/scm-js) organisation
-carrying both the `scmjs` and `plugin` topics is one. Everything an entry says about a
+that is either **named `plugin-…`** or carries both the `scmjs` and `plugin` topics. Everything an entry says about a
 plugin is read from the plugin itself — name, version, description, author and icon come
 from its own `plugin.json` — so nothing here can drift from what its author wrote.
 [`plugins.json`](plugins.json) holds only what the topics cannot say: search tags, which
@@ -37,8 +37,14 @@ never what is trusted.
 
 ## Adding a plugin
 
-For a repository in the scm-js organisation, give it the `scmjs` and `plugin` topics.
-That is the whole step — the next build lists it, and taking the topics off unlists it.
+For a repository in the scm-js organisation, name it `plugin-something`. That is the
+whole step. Giving it the `scmjs` and `plugin` topics works too, for a plugin whose name
+does not start that way — either signal is enough, because the two get forgotten at
+different rates and only one of them has to be remembered.
+
+The consequence is that listing is opt-*out*: a repository named like a plugin, with a
+readable `plugin.json`, is published without anyone here saying so. `exclude` is what
+holds one back. Being listed therefore says nothing about the code having been read.
 
 For one anywhere else, or to give a plugin search tags, open a pull request adding an
 entry to `plugins.json`:
