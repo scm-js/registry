@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-02T16:13:06.475Z",
+  "generated": "2026-09-02T16:15:54.858Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -18,8 +18,8 @@
         "example",
         "template"
       ],
-      "commit": "4a836e053e365b9c2d717289a501cf59549c4b19",
-      "updated": "2026-09-02T02:22:03Z"
+      "commit": "e0144fa8db639c36f4c8dc29c670e256fef17998",
+      "updated": "2026-09-02T16:15:35Z"
     },
     {
       "spec": "github:scm-js/plugin-melee-wizard",
