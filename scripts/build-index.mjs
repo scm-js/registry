@@ -101,6 +101,28 @@ async function newestTag(owner, name) {
   return versioned[0];
 }
 
+/* ── Reviews ────────────────────────────────────────────── */
+
+/**
+ * The `reviewed` mark, kept only while it still describes the code being listed.
+ *
+ * It is a claim that someone here read a *particular* release — so it is declared in
+ * plugins.json as the version or commit that was read, not as `true`, and it is dropped
+ * again the moment the plugin moves past it. A mark that survived its own release would
+ * end up vouching for code nobody has seen, which is worse than no mark at all.
+ *
+ * A commit is the stronger form. A version is easier to read and to keep up to date, but
+ * it identifies the code only as well as the tag does, and a tag can be moved.
+ */
+function reviewedMark(declared, version, sha, repo) {
+  const want = str(declared);
+  if (!want) return undefined;
+  if (version && want === version) return version;
+  if (/^[0-9a-f]{7,40}$/i.test(want) && sha.toLowerCase().startsWith(want.toLowerCase())) return version ?? want;
+  console.warn(`! ${repo}: reviewed ${want}, but the release listed is ${version ?? sha.slice(0, 7)} — dropping the mark`);
+  return undefined;
+}
+
 /* ── One entry ──────────────────────────────────────────── */
 
 /**
@@ -146,6 +168,7 @@ async function entryFor(listed, repo) {
     icon: str(manifest.icon),
     api: typeof manifest.api === "number" ? manifest.api : undefined,
     tags: Array.isArray(listed.tags) && listed.tags.length > 0 ? listed.tags.map(String) : undefined,
+    reviewed: reviewedMark(listed.reviewed, version, sha, listed.repo),
     tag: tag?.name,
     commit: sha,
     updated: head.commit?.committer?.date ?? head.commit?.author?.date,

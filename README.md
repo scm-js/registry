@@ -26,6 +26,27 @@ matches a Browse row against the installed list by that string, and a spec carry
 `tag` describe the release; the pin an install actually takes is resolved at install
 time and may be newer.
 
+## Reviewed
+
+Being listed is automatic. Being **reviewed** is not: it means someone here read that
+plugin's code at that release, and it is the only thing in the index that carries any
+judgement about a plugin.
+
+A review is of code, not of a repository, so `reviewed` in `plugins.json` names the
+version or commit that was read:
+
+```json
+{ "repo": "scm-js/plugin-paint", "reviewed": "1.0.0" }
+```
+
+The build keeps the mark only while it still describes what is being listed. Tag a new
+release and the mark disappears until someone reads it again and bumps the number — a
+mark that outlived its own release would vouch for code nobody has seen, which is worse
+than no mark. A commit (`"reviewed": "e869fa0"`) is the stronger form: a version
+identifies the code only as well as its tag does, and a tag can be moved.
+
+It is still not a safety guarantee, and it is not a sandbox. It says a person read it.
+
 ## What being listed means
 
 It means the editor will *offer* the plugin. It is not a review, and it is not a sandbox:
@@ -63,6 +84,7 @@ entry to `plugins.json`:
 - `tags` — words the editor's search matches on, besides the name and description.
 - `default` — true only for the plugins the editor ships with (`src/plugins/defaults.ts`);
   it is what puts the *default* badge on the row.
+- `reviewed` — the version or commit whose code was read. See **Reviewed** above.
 
 An entry for a repository the topics already found is an override: it adds the tags and
 the default flag, and the plugin is still listed once. `exclude` is the other way round —
@@ -124,6 +146,7 @@ shortens the wait from up to an hour to about a minute.
     "icon": "icon.svg",              // as the manifest wrote it, resolved by the editor
     "api": 1,                        // the plugin API version it needs
     "tags": ["terrain", "drawing"],
+    "reviewed": "1.0.0",             // someone read this release; absent if nobody has
     "tag": "v1.0.0",                 // the release this entry was read from
     "commit": "7ebd209…",            // the commit that tag points at
     "updated": "2026-09-01T18:22:03Z",

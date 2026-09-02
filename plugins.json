@@ -20,7 +20,8 @@
         "search",
         "download"
       ],
-      "default": true
+      "default": true,
+      "reviewed": "1.0.0"
     },
     {
       "repo": "scm-js/plugin-image-to-terrain",
@@ -29,7 +30,8 @@
         "import",
         "image"
       ],
-      "default": true
+      "default": true,
+      "reviewed": "1.0.0"
     },
     {
       "repo": "scm-js/plugin-repair",
@@ -38,7 +40,8 @@
         "protection",
         "sections"
       ],
-      "default": true
+      "default": true,
+      "reviewed": "1.0.0"
     },
     {
       "repo": "scm-js/plugin-paint",
@@ -48,7 +51,8 @@
         "drawing",
         "tools"
       ],
-      "default": true
+      "default": true,
+      "reviewed": "1.0.0"
     },
     {
       "repo": "scm-js/plugin-section-explorer",
@@ -57,7 +61,8 @@
         "hex",
         "file format"
       ],
-      "default": true
+      "default": true,
+      "reviewed": "1.0.0"
     },
     {
       "repo": "scm-js/plugin-walkability",
@@ -66,7 +71,8 @@
         "melee",
         "overlay"
       ],
-      "default": true
+      "default": true,
+      "reviewed": "1.1.0"
     },
     {
       "repo": "scm-js/plugin-melee-wizard",
@@ -75,14 +81,16 @@
         "start locations",
         "bases"
       ],
-      "default": true
+      "default": true,
+      "reviewed": "1.0.0"
     },
     {
       "repo": "scm-js/plugin-hello-world",
       "tags": [
         "example",
         "template"
-      ]
+      ],
+      "reviewed": "1.0.0"
     }
   ]
 }

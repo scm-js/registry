@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-02T16:26:49.363Z",
+  "generated": "2026-09-02T16:35:40.909Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -18,6 +18,7 @@
         "example",
         "template"
       ],
+      "reviewed": "1.0.0",
       "commit": "e0144fa8db639c36f4c8dc29c670e256fef17998",
       "updated": "2026-09-02T16:15:35Z"
     },
@@ -36,6 +37,7 @@
         "start locations",
         "bases"
       ],
+      "reviewed": "1.0.0",
       "tag": "v1.0.0",
       "commit": "18ee58f06ea35c0e64c565ab6d549b56bef310d6",
       "updated": "2026-09-02T16:15:33Z",
@@ -57,6 +59,7 @@
         "drawing",
         "tools"
       ],
+      "reviewed": "1.0.0",
       "tag": "v1.0.0",
       "commit": "e869fa024113b0557e5775d9b4f8d62b3e15a92f",
       "updated": "2026-09-02T16:15:27Z",
@@ -77,6 +80,7 @@
         "protection",
         "sections"
       ],
+      "reviewed": "1.0.0",
       "tag": "v1.0.0",
       "commit": "ee4914c53cf3f49c42d9ef873fe842bd5a758729",
       "updated": "2026-09-02T16:15:25Z",
@@ -97,6 +101,7 @@
         "search",
         "download"
       ],
+      "reviewed": "1.0.0",
       "tag": "v1.0.0",
       "commit": "a285431509cc4ac2089f7c88eabbe0642af3d623",
       "updated": "2026-09-02T16:15:21Z",
@@ -117,6 +122,7 @@
         "hex",
         "file format"
       ],
+      "reviewed": "1.0.0",
       "tag": "v1.0.0",
       "commit": "235969b2c4468d2a4e7148fd73b4ad67016ee607",
       "updated": "2026-09-02T16:15:29Z",
@@ -137,6 +143,7 @@
         "import",
         "image"
       ],
+      "reviewed": "1.0.0",
       "tag": "v1.0.0",
       "commit": "f9927be9bd1ca8bf09cc14ad4c6b5c2f2b904ab2",
       "updated": "2026-09-02T16:15:23Z",
@@ -157,6 +164,7 @@
         "melee",
         "overlay"
       ],
+      "reviewed": "1.1.0",
       "tag": "v1.1.0",
       "commit": "127fd07617a52d28151406e636a44b4b4f2ff0ef",
       "updated": "2026-09-02T16:15:31Z",
