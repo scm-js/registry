@@ -1,0 +1,49 @@
+# Rebuild index.json from plugins.json and commit it when anything changed.
+#
+# Hourly, on a push that touches the list or the generator, on demand, and on a
+# repository_dispatch — a plugin repository can send one when it publishes, so the
+# registry picks the release up without waiting for the hour:
+#
+#   gh api repos/scm-js/registry/dispatches -f event_type=plugin-updated
+name: Build index
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  push:
+    branches: [main]
+    paths: ["plugins.json", "scripts/build-index.mjs", ".github/workflows/build-index.yml"]
+  repository_dispatch:
+    types: [plugin-updated]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-index
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Build index.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/build-index.mjs
+      - name: Commit
+        run: |
+          if git diff --quiet -- index.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json
+          git commit -m "Update index.json"
+          git push
