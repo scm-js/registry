@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-02T16:23:27.431Z",
+  "generated": "2026-09-02T16:26:49.363Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -37,8 +37,8 @@
         "bases"
       ],
       "tag": "v1.0.0",
-      "commit": "4584689b288e7031a6d244f103d9a0332657ed07",
-      "updated": "2026-09-02T07:02:56Z",
+      "commit": "18ee58f06ea35c0e64c565ab6d549b56bef310d6",
+      "updated": "2026-09-02T16:15:33Z",
       "default": true
     },
     {
@@ -58,8 +58,8 @@
         "tools"
       ],
       "tag": "v1.0.0",
-      "commit": "7ebd20953f38a2963901cd5b2e05ce609bce0194",
-      "updated": "2026-09-02T06:04:38Z",
+      "commit": "e869fa024113b0557e5775d9b4f8d62b3e15a92f",
+      "updated": "2026-09-02T16:15:27Z",
       "default": true
     },
     {
@@ -98,8 +98,8 @@
         "download"
       ],
       "tag": "v1.0.0",
-      "commit": "e4f1a350fb2ddc78be7fdd9aeded3d66bfacad09",
-      "updated": "2026-09-02T06:04:53Z",
+      "commit": "a285431509cc4ac2089f7c88eabbe0642af3d623",
+      "updated": "2026-09-02T16:15:21Z",
       "default": true
     },
     {
@@ -118,8 +118,8 @@
         "file format"
       ],
       "tag": "v1.0.0",
-      "commit": "eef09e7b8abdf6aa976f552d3106988c201f1167",
-      "updated": "2026-09-02T06:04:53Z",
+      "commit": "235969b2c4468d2a4e7148fd73b4ad67016ee607",
+      "updated": "2026-09-02T16:15:29Z",
       "default": true
     },
     {
@@ -138,8 +138,8 @@
         "image"
       ],
       "tag": "v1.0.0",
-      "commit": "2dd696fd9e6a74d712f3e69133714b3fb97df8a9",
-      "updated": "2026-09-02T06:04:53Z",
+      "commit": "f9927be9bd1ca8bf09cc14ad4c6b5c2f2b904ab2",
+      "updated": "2026-09-02T16:15:23Z",
       "default": true
     },
     {
@@ -158,8 +158,8 @@
         "overlay"
       ],
       "tag": "v1.1.0",
-      "commit": "007f460a125d797397ea58e084b5a1f101819ab0",
-      "updated": "2026-09-02T07:31:18Z",
+      "commit": "127fd07617a52d28151406e636a44b4b4f2ff0ef",
+      "updated": "2026-09-02T16:15:31Z",
       "default": true
     }
   ]
