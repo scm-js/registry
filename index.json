@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-04T16:26:31.678Z",
+  "generated": "2026-09-04T16:33:06.861Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -19,13 +19,14 @@
         "template"
       ],
       "reviewed": "1.0.0",
+      "tag": "v1.0.0",
       "commit": "d021070ac3da2f9163fc5317bd1114235020ceab",
       "updated": "2026-09-04T16:26:03Z"
     },
     {
       "spec": "github:scm-js/plugin-melee-wizard",
       "name": "Melee Wizard",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Builds a ladder-style map's bases in one action each: symmetric start locations for 2, 4 or 8 players, and mineral lines with the geyser laid out on the three-tile ring the game mines fastest from, mirrored to every player. Also mirrors what you select and checks the map's symmetry.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-melee-wizard",
@@ -37,16 +38,15 @@
         "start locations",
         "bases"
       ],
-      "reviewed": "1.0.0",
-      "tag": "v1.0.0",
-      "commit": "18ee58f06ea35c0e64c565ab6d549b56bef310d6",
-      "updated": "2026-09-02T16:15:33Z",
+      "tag": "v1.0.1",
+      "commit": "6977beed4a71b99e842410c163e841273ad65bbf",
+      "updated": "2026-09-04T16:26:06Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-paint",
       "name": "Paint",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Drawing tools for the map. Draw lines, boxes, circles, freehand and text out of whatever the palette has picked, whether that is terrain, doodads, units, sprites or fog.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-paint",
@@ -59,16 +59,15 @@
         "drawing",
         "tools"
       ],
-      "reviewed": "1.0.0",
-      "tag": "v1.0.0",
-      "commit": "e869fa024113b0557e5775d9b4f8d62b3e15a92f",
-      "updated": "2026-09-02T16:15:27Z",
+      "tag": "v1.0.1",
+      "commit": "0a9a2fc40516b9d35ed1751a2051510960af6469",
+      "updated": "2026-09-04T16:26:08Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-repair",
       "name": "Repair",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Open a map and it tells you what is wrong with it: pieces missing or damaged, the tricks protected maps play, terrain the editor cannot edit. Each problem says what the game makes of the map as it stands and what fixing it would change, and it repairs the ones you tick. Restore original puts the file back as it opened.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-repair",
@@ -80,16 +79,15 @@
         "protection",
         "sections"
       ],
-      "reviewed": "1.0.0",
-      "tag": "v1.0.0",
-      "commit": "ee4914c53cf3f49c42d9ef873fe842bd5a758729",
-      "updated": "2026-09-02T16:15:25Z",
+      "tag": "v1.0.1",
+      "commit": "be19db42abda83a7322840ef42f9828c173b0e39",
+      "updated": "2026-09-04T16:26:09Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-scm-scx",
       "name": "scmscx.com",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Search scmscx.com, the StarCraft map archive, and open a map from it in the editor. The one item this plugin adds reaches scmscx.com over the network; its mark sits beside it.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-scx",
@@ -101,16 +99,15 @@
         "search",
         "download"
       ],
-      "reviewed": "1.0.0",
-      "tag": "v1.0.0",
-      "commit": "a285431509cc4ac2089f7c88eabbe0642af3d623",
-      "updated": "2026-09-02T16:15:21Z",
+      "tag": "v1.0.1",
+      "commit": "289befb68d6d0997fef7dc0dc8ede1a7ac08a301",
+      "updated": "2026-09-04T16:26:11Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-section-explorer",
       "name": "Section Explorer",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "A hex editor that knows the map file. Every section of the scenario, its bytes, and what each byte is: records, fields, flags, and the names behind the numbers. Edit at the byte or at the field.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-section-explorer",
@@ -122,16 +119,15 @@
         "hex",
         "file format"
       ],
-      "reviewed": "1.0.0",
-      "tag": "v1.0.0",
-      "commit": "235969b2c4468d2a4e7148fd73b4ad67016ee607",
-      "updated": "2026-09-02T16:15:29Z",
+      "tag": "v1.0.1",
+      "commit": "5ba4bac109e687d2ce1675979d8646c44f131885",
+      "updated": "2026-09-04T16:26:12Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-image-to-terrain",
       "name": "Terrain from Image",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "Turn a picture into terrain. Give it an image, say which colour means which terrain, and it lays out the map to match, cliffs and shores included.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-image-to-terrain",
@@ -143,10 +139,9 @@
         "import",
         "image"
       ],
-      "reviewed": "1.0.0",
-      "tag": "v1.0.0",
-      "commit": "f9927be9bd1ca8bf09cc14ad4c6b5c2f2b904ab2",
-      "updated": "2026-09-02T16:15:23Z",
+      "tag": "v1.0.1",
+      "commit": "95c5bed7ef75bc99c7890fe21d57eab5689ad915",
+      "updated": "2026-09-04T16:26:05Z",
       "default": true
     },
     {
@@ -159,13 +154,14 @@
       "homepage": "https://github.com/scm-js/plugin-trigger-script",
       "icon": "icon.svg",
       "api": 1,
+      "tag": "v1.0.0",
       "commit": "1460c179895360d9403488f50ed22040ace285e1",
       "updated": "2026-09-04T16:26:14Z"
     },
     {
       "spec": "github:scm-js/plugin-walkability",
       "name": "Walkability",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "description": "Reads the ground the way a unit does: islands, unreachable pockets, the areas a map divides into and the chokes between them with their widths, cliff seams with no ramp, and the ground distance between every pair of start locations, drawn over the map.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-walkability",
@@ -177,10 +173,9 @@
         "melee",
         "overlay"
       ],
-      "reviewed": "1.1.0",
-      "tag": "v1.1.0",
-      "commit": "127fd07617a52d28151406e636a44b4b4f2ff0ef",
-      "updated": "2026-09-02T16:15:31Z",
+      "tag": "v1.1.1",
+      "commit": "38ddfe1d700f5120b61cf644f5cfa31e6e878cc4",
+      "updated": "2026-09-04T16:26:15Z",
       "default": true
     }
   ]
