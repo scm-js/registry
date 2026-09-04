@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-04T15:48:18.862Z",
+  "generated": "2026-09-04T16:26:31.678Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -19,8 +19,8 @@
         "template"
       ],
       "reviewed": "1.0.0",
-      "commit": "9ad3b848ea73fa1cae874ad1cab3a14763ea9ec5",
-      "updated": "2026-09-04T15:47:26Z"
+      "commit": "d021070ac3da2f9163fc5317bd1114235020ceab",
+      "updated": "2026-09-04T16:26:03Z"
     },
     {
       "spec": "github:scm-js/plugin-melee-wizard",
@@ -159,8 +159,8 @@
       "homepage": "https://github.com/scm-js/plugin-trigger-script",
       "icon": "icon.svg",
       "api": 1,
-      "commit": "cef79d596e3b1511c08877688a41f504a67fe8d7",
-      "updated": "2026-09-04T15:47:27Z"
+      "commit": "1460c179895360d9403488f50ed22040ace285e1",
+      "updated": "2026-09-04T16:26:14Z"
     },
     {
       "spec": "github:scm-js/plugin-walkability",
