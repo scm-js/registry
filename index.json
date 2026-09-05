@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-05T19:13:09.156Z",
+  "generated": "2026-09-05T19:23:17.119Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -86,7 +86,7 @@
     {
       "spec": "github:scm-js/plugin-scm-scx",
       "name": "scmscx.com",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "description": "Search scmscx.com, the StarCraft map archive, and open a map from it in the editor. The one item this plugin adds reaches scmscx.com over the network; its mark sits beside it.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-scx",
@@ -98,9 +98,9 @@
         "search",
         "download"
       ],
-      "tag": "v1.1.0",
-      "commit": "fdb8bf44c4f36252cf6be28fa0dfc0f53f8ea2b3",
-      "updated": "2026-09-05T19:11:05Z",
+      "tag": "v1.1.1",
+      "commit": "a1cf020dc9163242867f56b3bdce75e8f207b043",
+      "updated": "2026-09-05T19:22:47Z",
       "default": true
     },
     {
