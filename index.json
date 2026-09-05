@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-05T18:15:09.726Z",
+  "generated": "2026-09-05T19:13:09.156Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -66,7 +66,7 @@
     {
       "spec": "github:scm-js/plugin-repair",
       "name": "Repair",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "description": "Open a map and it tells you what is wrong with it: pieces missing or damaged, the tricks protected maps play, terrain the editor cannot edit. Each problem says what the game makes of the map as it stands and what fixing it would change, and it repairs the ones you tick. Restore original puts the file back as it opened.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-repair",
@@ -78,15 +78,15 @@
         "protection",
         "sections"
       ],
-      "tag": "v1.1.0",
-      "commit": "2f36f549c5d1d2357ec07568295661e78bf3505f",
-      "updated": "2026-09-04T16:47:48Z",
+      "tag": "v1.1.1",
+      "commit": "3f29290f6c11c27fbe73f26cd5a033aee6c3857c",
+      "updated": "2026-09-05T19:11:05Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-scm-scx",
       "name": "scmscx.com",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "description": "Search scmscx.com, the StarCraft map archive, and open a map from it in the editor. The one item this plugin adds reaches scmscx.com over the network; its mark sits beside it.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-scx",
@@ -98,9 +98,9 @@
         "search",
         "download"
       ],
-      "tag": "v1.0.1",
-      "commit": "289befb68d6d0997fef7dc0dc8ede1a7ac08a301",
-      "updated": "2026-09-04T16:26:11Z",
+      "tag": "v1.1.0",
+      "commit": "fdb8bf44c4f36252cf6be28fa0dfc0f53f8ea2b3",
+      "updated": "2026-09-05T19:11:05Z",
       "default": true
     },
     {
@@ -125,7 +125,7 @@
     {
       "spec": "github:scm-js/plugin-image-to-terrain",
       "name": "Terrain from Image",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Turn a picture into terrain. Give it an image, say which colour means which terrain, and it lays out the map to match, cliffs and shores included.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-image-to-terrain",
@@ -137,29 +137,29 @@
         "import",
         "image"
       ],
-      "tag": "v1.0.1",
-      "commit": "95c5bed7ef75bc99c7890fe21d57eab5689ad915",
-      "updated": "2026-09-04T16:26:05Z",
+      "tag": "v1.0.2",
+      "commit": "bf2f17a854b4425090dede96cd9551a115523727",
+      "updated": "2026-09-05T19:11:05Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-trigger-script",
       "name": "Trigger Script",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "description": "A TypeScript file per map that generates triggers: one trigger() call per trigger, and structured code (variables, if, loops, functions) compiled into a state machine of death counters. Checked as you type against the map's own names; a built-in simulator shows what the result does.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigger-script",
       "homepage": "https://github.com/scm-js/plugin-trigger-script",
       "icon": "icon.svg",
       "api": 1,
-      "tag": "v1.0.0",
-      "commit": "1460c179895360d9403488f50ed22040ace285e1",
-      "updated": "2026-09-04T16:26:14Z"
+      "tag": "v1.0.1",
+      "commit": "b734a53cd616b91a6370898e97120029e582205e",
+      "updated": "2026-09-05T19:11:05Z"
     },
     {
       "spec": "github:scm-js/plugin-walkability",
       "name": "Walkability",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "description": "Reads the ground the way a unit does: islands, unreachable pockets, the areas a map divides into and the chokes between them with their widths, cliff seams with no ramp, and the ground distance between every pair of start locations, drawn over the map.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-walkability",
@@ -171,9 +171,9 @@
         "melee",
         "overlay"
       ],
-      "tag": "v1.1.1",
-      "commit": "38ddfe1d700f5120b61cf644f5cfa31e6e878cc4",
-      "updated": "2026-09-04T16:26:15Z",
+      "tag": "v1.1.2",
+      "commit": "f9454536cb920d0047cdc472f73599794536ccb2",
+      "updated": "2026-09-05T19:11:05Z",
       "default": true
     }
   ]
