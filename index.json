@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-04T16:48:17.981Z",
+  "generated": "2026-09-05T18:15:09.726Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -40,8 +40,7 @@
       ],
       "tag": "v1.0.1",
       "commit": "6977beed4a71b99e842410c163e841273ad65bbf",
-      "updated": "2026-09-04T16:26:06Z",
-      "default": true
+      "updated": "2026-09-04T16:26:06Z"
     },
     {
       "spec": "github:scm-js/plugin-paint",
@@ -121,8 +120,7 @@
       ],
       "tag": "v1.0.1",
       "commit": "5ba4bac109e687d2ce1675979d8646c44f131885",
-      "updated": "2026-09-04T16:26:12Z",
-      "default": true
+      "updated": "2026-09-04T16:26:12Z"
     },
     {
       "spec": "github:scm-js/plugin-image-to-terrain",
