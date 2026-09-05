@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-05T20:06:54.110Z",
+  "generated": "2026-09-05T21:34:49.690Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -82,6 +82,20 @@
       "commit": "fb15bcdcce4445ca017d2012ddf79e734bfad330",
       "updated": "2026-09-05T20:05:55Z",
       "default": true
+    },
+    {
+      "spec": "github:scm-js/plugin-scmjs-dev",
+      "name": "scmjs.dev",
+      "version": "0.1.0",
+      "description": "Your scmjs.dev account in the editor: sign in from the Account menu or the status bar, see your balance, usage and storage, keep maps with revisions and notes on your account, and let the AI plugin use the same sign-in.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-scmjs-dev",
+      "homepage": "https://github.com/scm-js/plugin-scmjs-dev",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v0.1.0",
+      "commit": "ba5d9cec8b223bfc546cdc811848c8b49dfa42c9",
+      "updated": "2026-09-05T21:34:20Z"
     },
     {
       "spec": "github:scm-js/plugin-scm-scx",
