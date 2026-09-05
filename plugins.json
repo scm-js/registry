@@ -61,7 +61,6 @@
         "hex",
         "file format"
       ],
-      "default": true,
       "reviewed": "1.0.0"
     },
     {
@@ -81,7 +80,6 @@
         "start locations",
         "bases"
       ],
-      "default": true,
       "reviewed": "1.0.0"
     },
     {
