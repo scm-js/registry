@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-05T23:38:41.939Z",
+  "generated": "2026-09-06T00:06:31.948Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -93,9 +93,18 @@
       "homepage": "https://github.com/scm-js/plugin-scmjs-dev",
       "icon": "icon.svg",
       "api": 1,
+      "tags": [
+        "account",
+        "storage",
+        "ai",
+        "assistant",
+        "triggers"
+      ],
+      "reviewed": "1.0.0",
       "tag": "v1.0.0",
       "commit": "4083f8713c190e6836c3ee59ead28c771068dfc6",
-      "updated": "2026-09-05T23:17:58Z"
+      "updated": "2026-09-05T23:17:58Z",
+      "default": true
     },
     {
       "spec": "github:scm-js/plugin-scm-scx",
