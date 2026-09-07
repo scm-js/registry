@@ -39,8 +39,14 @@ jobs:
       # of what the plugins say right now, so the retry cannot commit a stale merge.
       - name: Build and commit index.json
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # main requires a pull request, and a run's own GITHUB_TOKEN cannot bypass that.
+          # REGISTRY_PAT belongs to the owner, whom the ruleset lets through; only this
+          # step sees it, and without it (a fork) the push falls back to GITHUB_TOKEN.
+          REGISTRY_PAT: ${{ secrets.REGISTRY_PAT }}
         run: |
+          if [ -n "${REGISTRY_PAT:-}" ]; then
+            git remote set-url origin "https://x-access-token:$REGISTRY_PAT@github.com/$GITHUB_REPOSITORY"
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           for attempt in 1 2 3; do
