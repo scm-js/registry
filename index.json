@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-07T23:23:17.174Z",
+  "generated": "2026-09-07T23:28:03.673Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -143,6 +143,29 @@
       "tag": "v1.0.1",
       "commit": "5ba4bac109e687d2ce1675979d8646c44f131885",
       "updated": "2026-09-04T16:26:12Z"
+    },
+    {
+      "spec": "github:scm-js/plugin-stamp-library",
+      "name": "Stamp Library",
+      "version": "1.0.0",
+      "description": "Keep the pieces you build once — hand-tuned ramps, bridges, cliff corners, a whole base — as named stamps that stay with the editor across maps. Click one to lay it down anywhere, with a preview under the pointer. Search and tag the library, and share it as a JSON file or a stamp as a line of text.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-stamp-library",
+      "homepage": "https://github.com/scm-js/plugin-stamp-library",
+      "icon": "icon.svg",
+      "api": 1,
+      "tags": [
+        "terrain",
+        "clipboard",
+        "stamps",
+        "library",
+        "sharing"
+      ],
+      "reviewed": "1.0.0",
+      "tag": "v1.0.0",
+      "commit": "c6423b3b44da4b233940df464da9a72cfe79e31e",
+      "updated": "2026-09-07T23:26:53Z",
+      "default": true
     },
     {
       "spec": "github:scm-js/plugin-image-to-terrain",
