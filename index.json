@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-07T21:49:26.737Z",
+  "generated": "2026-09-07T21:50:51.603Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -26,7 +26,7 @@
     {
       "spec": "github:scm-js/plugin-melee-wizard",
       "name": "Melee Wizard",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "description": "Builds a ladder-style map's bases in one action each: symmetric start locations for 2, 4 or 8 players, and mineral lines with the geyser laid out on the three-tile ring the game mines fastest from, mirrored to every player. Also mirrors what you select and checks the map's symmetry.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-melee-wizard",
@@ -38,9 +38,9 @@
         "start locations",
         "bases"
       ],
-      "tag": "v1.0.1",
-      "commit": "6977beed4a71b99e842410c163e841273ad65bbf",
-      "updated": "2026-09-04T16:26:06Z"
+      "tag": "v1.0.2",
+      "commit": "55f4f6dc29d20e8a6e3c8565941cabc2f94ad38c",
+      "updated": "2026-09-07T21:50:26Z"
     },
     {
       "spec": "github:scm-js/plugin-paint",
