@@ -39,13 +39,20 @@ jobs:
       # of what the plugins say right now, so the retry cannot commit a stale merge.
       - name: Build and commit index.json
         env:
-          # main requires a pull request, and a run's own GITHUB_TOKEN cannot bypass that.
-          # REGISTRY_PAT belongs to the owner, whom the ruleset lets through; only this
-          # step sees it, and without it (a fork) the push falls back to GITHUB_TOKEN.
-          REGISTRY_PAT: ${{ secrets.REGISTRY_PAT }}
+          # main requires a pull request, and a run's own GITHUB_TOKEN cannot bypass that,
+          # so this pushes over SSH with a write deploy key on this repository — which the
+          # ruleset names as a bypass actor. A token would have been the obvious thing and
+          # does not work: a fine-grained one acts as itself rather than as the person who
+          # owns it, so it inherits none of their bypass. Without the secret (a fork) the
+          # push falls back to GITHUB_TOKEN.
+          CI_BUILD_KEY: ${{ secrets.CI_BUILD_KEY }}
         run: |
-          if [ -n "${REGISTRY_PAT:-}" ]; then
-            git remote set-url origin "https://x-access-token:$REGISTRY_PAT@github.com/$GITHUB_REPOSITORY"
+          if [ -n "${CI_BUILD_KEY:-}" ]; then
+            install -m 700 -d ~/.ssh
+            printf '%s\n' "$CI_BUILD_KEY" > ~/.ssh/ci_build
+            chmod 600 ~/.ssh/ci_build
+            export GIT_SSH_COMMAND="ssh -i ~/.ssh/ci_build -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+            git remote set-url origin "git@github.com:$GITHUB_REPOSITORY.git"
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
