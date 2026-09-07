@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-07T19:08:09.805Z",
+  "generated": "2026-09-07T19:51:33.621Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -167,7 +167,7 @@
     {
       "spec": "github:scm-js/plugin-trigscript",
       "name": "TrigScript",
-      "version": "2.5.0",
+      "version": "2.5.1",
       "description": "TypeScript kept inside the map and built into its triggers. Ordinary TypeScript — files, imports, helpers, loops — runs when you build and records one trigger per trigger() call; code inside program(() => { … }) runs in the game as a state machine of death counters. Checked as you type against the map's own names, with a built-in simulator.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigscript",
@@ -179,9 +179,9 @@
         "scripting",
         "typescript"
       ],
-      "tag": "v2.5.0",
-      "commit": "c450d85bb9b77aefab2cb1e2ad34a99243e1141b",
-      "updated": "2026-09-07T19:05:01Z"
+      "tag": "v2.5.1",
+      "commit": "969bcd912f5bd3fafaac87c6644f049172e933b7",
+      "updated": "2026-09-07T19:51:12Z"
     },
     {
       "spec": "github:scm-js/plugin-walkability",
