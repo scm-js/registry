@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-07T23:28:03.673Z",
+  "generated": "2026-09-07T23:56:52.500Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -186,6 +186,20 @@
       "commit": "bf2f17a854b4425090dede96cd9551a115523727",
       "updated": "2026-09-05T19:11:05Z",
       "default": true
+    },
+    {
+      "spec": "github:scm-js/plugin-trigedit",
+      "name": "TrigEdit",
+      "version": "1.0.0",
+      "description": "The Text Trigger Editor: the map's triggers as text in SCMDraft 2's TrigEdit syntax, so text from SCMDraft pastes in and text from here pastes back out. Compile checks it and says which line does not parse. Edits the mission briefing in the same syntax.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-trigedit",
+      "homepage": "https://github.com/scm-js/plugin-trigedit",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v1.0.0",
+      "commit": "0e69880a484d09279c48ef7abd6552885409c27f",
+      "updated": "2026-09-07T23:56:15Z"
     },
     {
       "spec": "github:scm-js/plugin-trigscript",
