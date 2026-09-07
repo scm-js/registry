@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-07T05:59:35.743Z",
+  "generated": "2026-09-07T14:01:11.136Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -100,9 +100,9 @@
         "assistant",
         "triggers"
       ],
-      "tag": "v1.10.0",
-      "commit": "413eb4bf62a52e56abb6b2397e60f8166118583a",
-      "updated": "2026-09-07T05:59:10Z",
+      "tag": "v1.11.0",
+      "commit": "936d6d4c20140a8dcd6bc9fec60195807d445c21",
+      "updated": "2026-09-07T14:00:41Z",
       "default": true
     },
     {
