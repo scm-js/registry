@@ -101,6 +101,14 @@
         "template"
       ],
       "reviewed": "1.0.0"
+    },
+    {
+      "repo": "scm-js/plugin-trigscript",
+      "tags": [
+        "triggers",
+        "scripting",
+        "typescript"
+      ]
     }
   ]
 }
