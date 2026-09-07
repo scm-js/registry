@@ -122,6 +122,17 @@
       ],
       "default": true,
       "reviewed": "1.0.0"
+    },
+    {
+      "repo": "scm-js/plugin-trigedit",
+      "tags": [
+        "triggers",
+        "text",
+        "trigedit",
+        "scmdraft"
+      ],
+      "default": true,
+      "reviewed": "1.0.0"
     }
   ]
 }
