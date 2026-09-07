@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-07T14:05:14.566Z",
+  "generated": "2026-09-07T15:01:17.169Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -165,12 +165,12 @@
       "default": true
     },
     {
-      "spec": "github:scm-js/plugin-trigger-script",
+      "spec": "github:scm-js/plugin-trigscript",
       "name": "Trigger Script",
       "version": "1.0.1",
       "description": "A TypeScript file per map that generates triggers: one trigger() call per trigger, and structured code (variables, if, loops, functions) compiled into a state machine of death counters. Checked as you type against the map's own names; a built-in simulator shows what the result does.",
       "author": "Jeany",
-      "repo": "https://github.com/scm-js/plugin-trigger-script",
+      "repo": "https://github.com/scm-js/plugin-trigscript",
       "homepage": "https://github.com/scm-js/plugin-trigger-script",
       "icon": "icon.svg",
       "api": 1,
