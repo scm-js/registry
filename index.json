@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-07T15:36:54.717Z",
+  "generated": "2026-09-07T19:08:09.805Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -86,7 +86,7 @@
     {
       "spec": "github:scm-js/plugin-scmjs-dev",
       "name": "scmjs.dev",
-      "version": "1.12.0",
+      "version": "1.13.0",
       "description": "Your scmjs.dev account in the editor, and the AI that comes with it: sign in from the Account menu or the status bar, keep maps on your account with revisions and notes, and under Tools ▸ AI make a whole scenario from a sentence, lay out a map, redo an area, write and explain triggers, name and brief the map, review it, rewrite strings, or work with an assistant that reads and edits the map with you. The first AI request starts a free trial; the AI features can be turned off, leaving the account and the maps.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scmjs-dev",
@@ -100,9 +100,9 @@
         "assistant",
         "triggers"
       ],
-      "tag": "v1.12.0",
-      "commit": "3f71cac71bdbbdae8fbec6a97ee95b60b45e189b",
-      "updated": "2026-09-07T15:27:09Z",
+      "tag": "v1.13.0",
+      "commit": "b0c10f824fe38c69d75ce380049a8445939c7a43",
+      "updated": "2026-09-07T19:05:39Z",
       "default": true
     },
     {
@@ -167,7 +167,7 @@
     {
       "spec": "github:scm-js/plugin-trigscript",
       "name": "TrigScript",
-      "version": "2.0.0",
+      "version": "2.5.0",
       "description": "TypeScript kept inside the map and built into its triggers. Ordinary TypeScript — files, imports, helpers, loops — runs when you build and records one trigger per trigger() call; code inside program(() => { … }) runs in the game as a state machine of death counters. Checked as you type against the map's own names, with a built-in simulator.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigscript",
@@ -179,9 +179,9 @@
         "scripting",
         "typescript"
       ],
-      "tag": "v2.0.0",
-      "commit": "61ddad346870af9ff5b9f379cf64e789cbba717d",
-      "updated": "2026-09-07T15:27:13Z"
+      "tag": "v2.5.0",
+      "commit": "c450d85bb9b77aefab2cb1e2ad34a99243e1141b",
+      "updated": "2026-09-07T19:05:01Z"
     },
     {
       "spec": "github:scm-js/plugin-walkability",
