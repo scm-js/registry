@@ -110,6 +110,18 @@
         "scripting",
         "typescript"
       ]
+    },
+    {
+      "repo": "scm-js/plugin-stamp-library",
+      "tags": [
+        "terrain",
+        "clipboard",
+        "stamps",
+        "library",
+        "sharing"
+      ],
+      "default": true,
+      "reviewed": "1.0.0"
     }
   ]
 }
