@@ -104,6 +104,7 @@
     },
     {
       "repo": "scm-js/plugin-trigscript",
+      "default": true,
       "tags": [
         "triggers",
         "scripting",
