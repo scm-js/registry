@@ -1,0 +1,57 @@
+# The form a plugin is offered on. `.github/workflows/submission.yml` reads an issue made
+# with it, and `scripts/check-submission.mjs` matches these labels — by their letters, so
+# the wording can be changed here without editing the parser in the same commit.
+name: Submit a plugin
+description: Offer a plugin repository for the list the editor searches under Plugins ▸ Browse Plugins…
+title: "Plugin: "
+labels: ["submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a plugin that lives in the [scm-js](https://github.com/scm-js) organisation there is
+        nothing to do — a repository named `plugin-…` is listed on its own. This form is for a
+        plugin anywhere else, and for giving any plugin its search tags.
+
+        Everything a listing says about a plugin — its name, version, description, author and
+        icon — is read from your own `plugin.json` at your newest version tag, so there is
+        nothing to fill in here twice. A bot checks the repository as soon as you post this and
+        says what it found; if something is wrong, edit the issue and it checks again.
+  - type: input
+    id: repository
+    attributes:
+      label: Repository
+      description: Public, with a `plugin.json` in it. `owner/name`, or the address of the repository.
+      placeholder: owner/my-plugin
+    validations:
+      required: true
+  - type: input
+    id: subdirectory
+    attributes:
+      label: Subdirectory
+      description: Only when `plugin.json` is not at the top of the repository — the folder it is in.
+      placeholder: plugins/my-plugin
+  - type: input
+    id: tags
+    attributes:
+      label: Search tags
+      description: Words the editor's search should match besides your name and description. Comma separated, up to eight.
+      placeholder: terrain, tools, import
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: What the plugin is for, if the description does not cover it. Anything a reader should know before reading the code.
+  - type: checkboxes
+    id: acknowledgements
+    attributes:
+      label: Before you post this
+      options:
+        - label: I wrote this plugin, or I am submitting it with the agreement of whoever did.
+          required: true
+        - label: The repository is public, has a licence, and its `plugin.json` names what the plugin is and who wrote it.
+          required: true
+        - label: I understand that a plugin runs with the editor's own privileges and is not sandboxed, and that someone here will read the code before it is listed.
+          required: true
+        - label: I understand that being listed is not a promise the code was reviewed, and that a user installing it is shown where it comes from and warned about the above.
+          required: true

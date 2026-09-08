@@ -12,15 +12,16 @@
  * out. An entry there is an *override* — a discovered repository that also appears in the
  * list takes the list's tags and default flag and is not listed twice.
  *
- * What an entry says about a plugin is read from the plugin. The newest semver tag is the
- * release: its commit is what the entry describes, and the `plugin.json` at that commit
- * supplies the name, version, description and icon. A repository with no semver tag falls
- * back to its default branch, so a plugin is listed from its first push and starts naming
- * a release the first time it is tagged. The tag never reaches the `spec`, which stays
- * floating (`github:owner/repo`): the editor compares a registry row against the installed
- * list by that string, and a spec carrying `@v1.0.0` would not match the same plugin
- * installed from its branch. What Install pins is whatever the confirmation resolves at
- * the time, which may be newer than the release named here.
+ * What an entry says about a plugin is read from the plugin, by `lib/plugins.mjs`, which
+ * `check-submission.mjs` reads it with too. The newest semver tag is the release: its
+ * commit is what the entry describes, and the `plugin.json` at that commit supplies the
+ * name, version, description and icon. A repository with no semver tag falls back to its
+ * default branch, so a plugin is listed from its first push and starts naming a release
+ * the first time it is tagged. The tag never reaches the `spec`, which stays floating
+ * (`github:owner/repo`): the editor compares a registry row against the installed list by
+ * that string, and a spec carrying `@v1.0.0` would not match the same plugin installed
+ * from its branch. What Install pins is whatever the confirmation resolves at the time,
+ * which may be newer than the release named here.
  *
  * The file is only rewritten when an entry actually changed: `generated` is excluded from
  * the comparison, so an hourly run over unchanged plugins commits nothing.
@@ -29,154 +30,9 @@
  * `GITHUB_TOKEN` is used when set (higher API rate limits); none is required.
  */
 import { readFile, writeFile } from "node:fs/promises";
+import { entryFor, getAll, repoKey, str } from "./lib/plugins.mjs";
 
 const OUT = process.argv.includes("--out") ? process.argv[process.argv.indexOf("--out") + 1] : "index.json";
-const TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
-
-const headers = {
-  accept: "application/vnd.github+json",
-  "user-agent": "scm-js-registry",
-  ...(TOKEN ? { authorization: `Bearer ${TOKEN}` } : {}),
-};
-
-async function getJson(url) {
-  const res = await fetch(url, { headers });
-  if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText} for ${url}`);
-  return res.json();
-}
-
-/** Every page of a list endpoint, followed through the Link header. */
-async function getAll(url) {
-  const out = [];
-  let next = `${url}${url.includes("?") ? "&" : "?"}per_page=100`;
-  while (next) {
-    const res = await fetch(next, { headers });
-    if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText} for ${next}`);
-    out.push(...(await res.json()));
-    next = /<([^>]+)>;\s*rel="next"/.exec(res.headers.get("link") ?? "")?.[1] ?? null;
-  }
-  return out;
-}
-
-async function getText(url) {
-  const res = await fetch(url, { headers: { "user-agent": headers["user-agent"] } });
-  if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText} for ${url}`);
-  return res.text();
-}
-
-const str = (v) => (typeof v === "string" && v.trim() !== "" ? v.trim() : undefined);
-const repoKey = (repo, dir) => `${repo.toLowerCase()}${dir ? `/${dir.toLowerCase()}` : ""}`;
-
-/* ── Releases ───────────────────────────────────────────── */
-
-/**
- * A tag name as a comparable version, or null for one that is not semver. A leading `v`
- * is optional and build metadata is ignored; a prerelease sorts below the release it
- * leads to, so `v1.1.0-rc.1` never wins over `v1.0.0`... it wins over nothing but
- * `v1.1.0`'s own earlier prereleases, which is the useful half of the rule here.
- */
-function parseVersion(tag) {
-  const m = /^v?(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?(?:\+[0-9A-Za-z.-]+)?$/.exec(tag);
-  if (!m) return null;
-  return { major: +m[1], minor: +m[2], patch: +m[3], pre: m[4] ?? null };
-}
-
-/** Newest first. Only the ordering matters, so the prerelease rule is kept simple. */
-function compareVersions(a, b) {
-  for (const k of ["major", "minor", "patch"]) if (a[k] !== b[k]) return b[k] - a[k];
-  if (a.pre === b.pre) return 0;
-  if (a.pre === null) return -1; // a release beats any prerelease of the same version
-  if (b.pre === null) return 1;
-  return a.pre < b.pre ? 1 : -1;
-}
-
-/** The repository's newest semver tag, or null when it has never been tagged. */
-async function newestTag(owner, name) {
-  const tags = await getAll(`https://api.github.com/repos/${owner}/${name}/tags`);
-  const versioned = tags
-    .map((t) => ({ name: t.name, sha: t.commit?.sha, version: parseVersion(t.name) }))
-    .filter((t) => t.version && t.sha);
-  if (versioned.length === 0) return null;
-  versioned.sort((a, b) => compareVersions(a.version, b.version));
-  return versioned[0];
-}
-
-/* ── Reviews ────────────────────────────────────────────── */
-
-/**
- * The `reviewed` mark, kept only while it still describes the code being listed.
- *
- * It is a claim that someone here read a *particular* release — so it is declared in
- * plugins.json as the version or commit that was read, not as `true`, and it is dropped
- * again the moment the plugin moves past it. A mark that survived its own release would
- * end up vouching for code nobody has seen, which is worse than no mark at all.
- *
- * A commit is the stronger form. A version is easier to read and to keep up to date, but
- * it identifies the code only as well as the tag does, and a tag can be moved.
- */
-function reviewedMark(declared, version, sha, repo) {
-  const want = str(declared);
-  if (!want) return undefined;
-  if (version && want === version) return version;
-  if (/^[0-9a-f]{7,40}$/i.test(want) && sha.toLowerCase().startsWith(want.toLowerCase())) return version ?? want;
-  console.warn(`! ${repo}: reviewed ${want}, but the release listed is ${version ?? sha.slice(0, 7)} — dropping the mark`);
-  return undefined;
-}
-
-/* ── One entry ──────────────────────────────────────────── */
-
-/**
- * One repository → one registry entry. `repo` is the GitHub object when the organisation
- * listing already supplied it, so a discovered plugin costs no extra request for it.
- */
-async function entryFor(listed, repo) {
-  const [owner, name] = listed.repo.split("/");
-  if (!owner || !name) throw new Error(`"repo" must be owner/name, not "${listed.repo}"`);
-  const dir = (listed.dir ?? "").replace(/^\/+|\/+$/g, "");
-
-  repo ??= await getJson(`https://api.github.com/repos/${owner}/${name}`);
-  if (repo.archived) console.warn(`! ${listed.repo} is archived`);
-
-  // The newest tag is the release; an untagged repository is described by its branch.
-  const tag = await newestTag(owner, name);
-  const ref = tag ? tag.sha : repo.default_branch;
-  const head = await getJson(`https://api.github.com/repos/${owner}/${name}/commits/${ref}`);
-  const sha = head.sha;
-
-  const manifestUrl = `https://raw.githubusercontent.com/${owner}/${name}/${sha}/${dir ? `${dir}/` : ""}plugin.json`;
-  const manifest = JSON.parse(await getText(manifestUrl));
-  if (!str(manifest.name)) throw new Error(`${manifestUrl} has no "name"`);
-
-  // The version is the author's, from the manifest at that commit; the tag only chose the
-  // commit. They should agree, and a release where they do not is worth saying out loud.
-  const version = str(manifest.version);
-  if (tag && version && parseVersion(tag.name) && version !== tag.name.replace(/^v/, "")) {
-    console.warn(`! ${listed.repo} is tagged ${tag.name} but its plugin.json says ${version}`);
-  }
-
-  const spec = `github:${owner}/${name}${dir ? `/${dir}` : ""}`;
-  const web = `https://github.com/${owner}/${name}${dir ? `/tree/${repo.default_branch}/${dir}` : ""}`;
-  const entry = {
-    spec,
-    name: str(manifest.name),
-    version,
-    description: str(manifest.description) ?? str(repo.description),
-    author: str(manifest.author),
-    repo: web,
-    homepage: str(manifest.homepage) ?? str(repo.homepage),
-    // Verbatim: the editor resolves a relative icon against the plugin's own files.
-    icon: str(manifest.icon),
-    api: typeof manifest.api === "number" ? manifest.api : undefined,
-    tags: Array.isArray(listed.tags) && listed.tags.length > 0 ? listed.tags.map(String) : undefined,
-    reviewed: reviewedMark(listed.reviewed, version, sha, listed.repo),
-    tag: tag?.name,
-    commit: sha,
-    updated: head.commit?.committer?.date ?? head.commit?.author?.date,
-    default: listed.default === true ? true : undefined,
-  };
-  for (const [k, v] of Object.entries(entry)) if (v === undefined) delete entry[k];
-  return entry;
-}
 
 /* ── Discovery ──────────────────────────────────────────── */
 
@@ -193,8 +49,9 @@ async function entryFor(listed, repo) {
  * The cost of the union is that listing is opt-*out*: a repository named like a plugin and
  * carrying a readable `plugin.json` is published without anyone saying so, and `exclude` in
  * plugins.json is what holds one back. That is deliberate — a plugin nobody can find is a
- * worse failure here than one listed a release early — but it is why being *listed* says
- * nothing about a plugin having been read. `verified` is the field that does.
+ * worse failure here than one listed a release early — but it holds only inside the
+ * organisation, where every repository is the project's own. A plugin from anywhere else
+ * is listed by someone deciding to list it: see `check-submission.mjs`.
  *
  * Private repositories are skipped because the index is public and
  * `raw.githubusercontent.com` would not serve their files to the editor anyway.
@@ -261,9 +118,9 @@ async function main() {
   const failed = [];
   for (const { listed, repo } of jobs) {
     try {
-      const entry = await entryFor(listed, repo);
+      const { entry, repo: meta, tag } = await entryFor(listed, repo);
       plugins.push(entry);
-      const at = entry.tag ?? `${repo?.default_branch ?? "HEAD"} (untagged)`;
+      const at = tag?.name ?? `${meta?.default_branch ?? "HEAD"} (untagged)`;
       console.log(`✓ ${entry.spec}  ${entry.name} v${entry.version ?? "?"}  ${at}  ${entry.commit.slice(0, 7)}`);
     } catch (err) {
       // A repository that will not answer keeps whatever the last good run said about it:

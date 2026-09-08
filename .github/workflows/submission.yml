@@ -1,0 +1,215 @@
+# A plugin offered on the issue form: check it, say what is wrong, and — when someone here
+# decides to list it — open the pull request that adds the entry.
+#
+# The two halves are deliberately different in kind:
+#
+#   `check` runs on its own, on every open and every edit, and only ever writes a comment.
+#   It is the part that saves the submitter work: the repository is read the same way
+#   `build-index.mjs` reads one, so what they are told is what the index will say about
+#   their plugin, and they can fix it and edit the issue rather than wait for a review.
+#
+#   `list` runs when a maintainer adds the `approved` label. That gate is a person on
+#   purpose. Inside the organisation listing is automatic, because every repository there
+#   is the project's own; from outside it is a decision, because the editor offers what
+#   this registry lists and runs a plugin with its own privileges. GitHub already enforces
+#   who may label an issue — only someone with triage or write access on this repository —
+#   so the label *is* the authorisation, and there is nothing else to check here.
+#
+# Merging the pull request is the last step: a push touching `plugins.json` starts
+# `build-index.yml`, which rebuilds `index.json`, and the row appears in Browse.
+name: Submission
+
+on:
+  issues:
+    types: [opened, edited, reopened, labeled]
+  workflow_dispatch:
+    inputs:
+      make-labels:
+        description: "Create the labels this workflow uses, then stop."
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: submission-${{ github.event.issue.number || github.run_id }}
+  cancel-in-progress: false
+
+env:
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  # Run once by hand on a fresh clone or a fork. The issue form applies `submission` at
+  # creation and GitHub drops a label that does not exist, which would leave every
+  # submission unchecked and nothing to say why.
+  labels:
+    if: github.event_name == 'workflow_dispatch' && inputs.make-labels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create the labels
+        run: |
+          set -eu
+          gh label create submission --repo "$GITHUB_REPOSITORY" --color 0e8a16 --description "A plugin offered for listing" --force
+          gh label create approved --repo "$GITHUB_REPOSITORY" --color 1d76db --description "Read and accepted: opens the pull request that lists it" --force
+          gh label create "submission:passing" --repo "$GITHUB_REPOSITORY" --color c2e0c6 --description "The automatic checks found nothing blocking" --force
+          gh label create "submission:blocked" --repo "$GITHUB_REPOSITORY" --color d93f0b --description "The automatic checks found something that has to be fixed" --force
+
+  check:
+    if: >-
+      github.event_name == 'issues' &&
+      contains(github.event.issue.labels.*.name, 'submission') &&
+      (github.event.action != 'labeled' || github.event.label.name == 'submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Through the environment, never interpolated into the script: the body is written
+      # by whoever opened the issue.
+      - name: Read the form
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > "$RUNNER_TEMP/issue.md"
+
+      - name: Check the plugin
+        id: check
+        run: |
+          # The step's shell is `bash -e`, and a blocked submission is a non-zero exit that
+          # this job has to survive in order to report it.
+          set +e
+          node scripts/check-submission.mjs \
+            --body-file "$RUNNER_TEMP/issue.md" \
+            --report "$RUNNER_TEMP/report.md" \
+            --result "$RUNNER_TEMP/result.json"
+          code=$?
+          set -e
+          # 0 nothing blocking, 2 blocked, anything else and the check itself broke —
+          # which is not the submitter's problem and must not be reported as their fault.
+          if [ "$code" != 0 ] && [ "$code" != 2 ]; then
+            echo "::error::check-submission.mjs failed with $code"
+            exit "$code"
+          fi
+          echo "ok=$([ "$code" = 0 ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+
+      # One comment per issue, rewritten. A submission is meant to be edited until it
+      # passes, and a new comment for each attempt would bury the answer that still counts.
+      - name: Say what was found
+        env:
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          set -eu
+          # Only this workflow's own comment: the marker is visible in the page source, and
+          # a comment from anyone else carrying it cannot be edited from here anyway.
+          id=$(gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE/comments" --paginate \
+            --jq 'map(select(.user.login == "github-actions[bot]" and (.body | contains("<!-- scm-js-registry: submission -->")))) | first | .id // empty')
+          if [ -n "$id" ]; then
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$id" -F "body=@$RUNNER_TEMP/report.md" >/dev/null
+          else
+            gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE/comments" -F "body=@$RUNNER_TEMP/report.md" >/dev/null
+          fi
+
+      - name: Label it
+        env:
+          ISSUE: ${{ github.event.issue.number }}
+          OK: ${{ steps.check.outputs.ok }}
+        run: |
+          set -eu
+          if [ "$OK" = true ]; then add="submission:passing"; drop="submission:blocked"; else add="submission:blocked"; drop="submission:passing"; fi
+          gh issue edit "$ISSUE" --repo "$GITHUB_REPOSITORY" --add-label "$add" --remove-label "$drop" 2>/dev/null ||
+            gh issue edit "$ISSUE" --repo "$GITHUB_REPOSITORY" --add-label "$add"
+
+  list:
+    if: >-
+      github.event_name == 'issues' && github.event.action == 'labeled' &&
+      github.event.label.name == 'approved' &&
+      contains(github.event.issue.labels.*.name, 'submission')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Read the form
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: printf '%s' "$BODY" > "$RUNNER_TEMP/issue.md"
+
+      # Checked again rather than trusting the label: the issue may have been edited to
+      # name a different repository since anyone read it, and this run is what writes.
+      - name: Check it again, and add the entry
+        id: entry
+        run: |
+          set -eu
+          node scripts/check-submission.mjs \
+            --body-file "$RUNNER_TEMP/issue.md" \
+            --result "$RUNNER_TEMP/result.json" \
+            --report "$RUNNER_TEMP/report.md" \
+            --write plugins.json
+          repo=$(jq -r .repo "$RUNNER_TEMP/result.json")
+          name=$(jq -r '.name // .repo' "$RUNNER_TEMP/result.json")
+          branch="submit/$(printf '%s' "$repo" | tr 'A-Z' 'a-z' | tr -c 'a-z0-9._-' '-')"
+          {
+            echo "repo=$repo"
+            echo "name=$name"
+            echo "branch=$branch"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open the pull request
+        id: pr
+        env:
+          ISSUE: ${{ github.event.issue.number }}
+          REPO: ${{ steps.entry.outputs.repo }}
+          NAME: ${{ steps.entry.outputs.name }}
+          BRANCH: ${{ steps.entry.outputs.branch }}
+          ACTOR: ${{ github.actor }}
+        run: |
+          set -eu
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B "$BRANCH"
+          git add plugins.json
+          git commit -m "List $NAME ($REPO)" -m "Submitted in #$ISSUE."
+          # The branch is rewritten if it is already there, so a second approval after an
+          # edit replaces the entry rather than stacking another commit on it.
+          git push --force origin "$BRANCH"
+          url=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$BRANCH" --state open --json url --jq 'first | .url // empty')
+          if [ -z "$url" ]; then
+            body=$(printf '%s\n' \
+              "Adds **$NAME** (\`$REPO\`) to the list the editor searches." \
+              "" \
+              "Submitted in #$ISSUE and approved by @$ACTOR. The checks on that issue are in its comment; they say the repository can be read, not that the code has been." \
+              "" \
+              "Merging rebuilds \`index.json\` and the plugin appears in Browse within the hour. Nothing about it is pinned here — what the editor installs is resolved at install time from the repository itself." \
+              "" \
+              "Closes #$ISSUE")
+            url=$(gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$BRANCH" \
+              --title "List $NAME ($REPO)" --body "$body")
+          fi
+          echo "url=$url" >> "$GITHUB_OUTPUT"
+
+      - name: Say so on the issue
+        env:
+          ISSUE: ${{ github.event.issue.number }}
+          URL: ${{ steps.pr.outputs.url }}
+        run: |
+          set -eu
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" \
+            --body "Approved. $URL adds the entry; merging it puts the plugin in Browse within the hour, and closes this."
+
+      # An approval that cannot be written has to say so, or the label sits there looking
+      # like it worked.
+      - name: If that failed, take the label back
+        if: failure()
+        env:
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          set -eu
+          gh issue edit "$ISSUE" --repo "$GITHUB_REPOSITORY" --remove-label approved
+          gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" \
+            --body "The \`approved\` label was taken off again: the entry could not be written. [The run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) says why — usually the checks no longer pass because the issue was edited."

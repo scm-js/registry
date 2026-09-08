@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Writing a plugin
+    url: https://docs.scmjs.dev/plugins/writing-a-plugin/
+    about: The manifest, the API, how a plugin is loaded, and what one can do.
+  - name: Something wrong with the editor
+    url: https://github.com/scm-js/scm-js/issues
+    about: This repository is only the list of plugins.

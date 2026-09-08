@@ -13,6 +13,9 @@ from its own `plugin.json` — so nothing here can drift from what its author wr
 plugins the editor ships as defaults, repositories outside the organisation, and anything
 to leave out.
 
+Written a plugin somewhere else? [Submit it](#submitting-a-plugin) — one issue form, and a
+bot tells you what it found before anyone reads it.
+
 ## Which commit an entry describes
 
 The newest semver tag is the release. An entry's `commit`, `version` and `updated` come
@@ -56,7 +59,38 @@ pasting its address by hand — the manifest, the addresses the code will be fet
 the commit being pinned, and the warning. The registry decides what appears in the list,
 never what is trusted.
 
-## Adding a plugin
+## Submitting a plugin
+
+**[Open a submission](https://github.com/scm-js/registry/issues/new?template=submit-plugin.yml)**
+and give it the repository. That is the whole of it — the form asks for the address, an
+optional folder, and the words you want the editor's search to match. Everything a
+listing says about your plugin is read from your own `plugin.json` at your newest version
+tag, so there is nothing here to fill in twice or to keep up to date afterwards.
+
+A bot answers within a minute or so, in one comment it rewrites each time you edit the
+issue. It reads the repository with
+[`scripts/check-submission.mjs`](scripts/check-submission.mjs), which resolves it exactly
+as the index build does — same release rule, same manifest, same probe for the file the
+editor would import — so what it tells you is what the index will say about your plugin,
+not a second opinion written beside it. It reports what is blocking (no `plugin.json` at
+that commit, a private repository, an entry file that is not there, an `api` newer than
+the editor implements) separately from what is merely worth fixing (no version tag yet,
+no author, no licence, a minified bundle).
+
+Then someone here reads the code and adds the `approved` label, which opens the pull
+request that adds your entry; merging it puts the plugin in Browse within the hour. That
+step is a person on purpose. Inside the organisation listing is automatic, because every
+repository there is the project's own; from anywhere else it is a decision, because a
+plugin runs with the editor's own privileges and this list is what the editor offers.
+Passing the checks is not that decision and does not stand in for it.
+
+You can run the same check yourself before submitting anything:
+
+```sh
+node scripts/check-submission.mjs owner/name --tags terrain,tools
+```
+
+## Adding a plugin by hand
 
 For a repository in the scm-js organisation, name it `plugin-something`. That is the
 whole step. Giving it the `scmjs` and `plugin` topics works too, for a plugin whose name
@@ -67,8 +101,8 @@ The consequence is that listing is opt-*out*: a repository named like a plugin, 
 readable `plugin.json`, is published without anyone here saying so. `exclude` is what
 holds one back. Being listed therefore says nothing about the code having been read.
 
-For one anywhere else, or to give a plugin search tags, open a pull request adding an
-entry to `plugins.json`:
+An entry in `plugins.json` is what the submission flow above writes, and what to edit
+directly to give a plugin tags or to change one:
 
 ```json
 {
@@ -96,6 +130,20 @@ The plugin needs a `plugin.json` with at least a `name`, and should carry `versi
 
 A plugin that stops answering keeps its last known entry rather than disappearing on a
 network blink.
+
+## Running the submission workflow yourself
+
+[`submission.yml`](.github/workflows/submission.yml) uses four labels: `submission`, which
+the issue form applies; `approved`, which a maintainer adds and which is the only thing
+that writes anything; and `submission:passing` / `submission:blocked`, which the check
+sets so a list of open submissions can be read at a glance. GitHub silently drops a label
+that does not exist, so on a fork run the workflow once by hand — **Actions ▸ Submission ▸
+Run workflow** — and its `labels` job creates all four.
+
+Who may approve is GitHub's own answer: only someone with triage or write access on this
+repository can label an issue, so the label *is* the authorisation and the workflow checks
+nothing else. It does re-run the check before writing, because an issue can be edited
+after it was read.
 
 ## When it rebuilds
 
@@ -172,8 +220,14 @@ patching the editor.
 ## Building it locally
 
 ```sh
-node scripts/build-index.mjs          # rewrites index.json if an entry changed
+node scripts/build-index.mjs                       # rewrites index.json if an entry changed
+node scripts/check-submission.mjs owner/name       # what a submission of that repository would say
+node scripts/check-submission.mjs --body-file issue.md   # the same, read off a filled-in form
 GITHUB_TOKEN=$(gh auth token) node scripts/build-index.mjs   # higher API rate limits
 ```
+
+Both read a plugin repository through [`scripts/lib/plugins.mjs`](scripts/lib/plugins.mjs),
+which is the only thing here that knows the release rule and how an entry is built. They
+share it so that a submitter cannot be told one thing and the index publish another.
 
 MIT, like the editor.
