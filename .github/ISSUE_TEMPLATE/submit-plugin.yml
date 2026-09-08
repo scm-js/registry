@@ -1,6 +1,6 @@
 # The form a plugin is offered on. `.github/workflows/submission.yml` reads an issue made
-# with it, and `scripts/check-submission.mjs` matches these labels — by their letters, so
-# the wording can be changed here without editing the parser in the same commit.
+# with it, and `scripts/check-submission.mjs` matches these labels by their letters, so the
+# wording can be changed here without editing the parser in the same commit.
 name: Submit a plugin
 description: Offer a plugin repository for the list the editor searches under Plugins ▸ Browse Plugins…
 title: "Plugin: "
@@ -9,19 +9,21 @@ body:
   - type: markdown
     attributes:
       value: |
-        For a plugin that lives in the [scm-js](https://github.com/scm-js) organisation there is
-        nothing to do — a repository named `plugin-…` is listed on its own. This form is for a
-        plugin anywhere else, and for giving any plugin its search tags.
+        Use this form for a plugin outside the [scm-js](https://github.com/scm-js) organisation,
+        or to give any plugin its search tags. A repository inside the organisation named
+        `plugin-…` is listed on its own, with nothing to fill in.
 
-        Everything a listing says about a plugin — its name, version, description, author and
-        icon — is read from your own `plugin.json` at your newest version tag, so there is
-        nothing to fill in here twice. A bot checks the repository as soon as you post this and
-        says what it found; if something is wrong, edit the issue and it checks again.
+        Your plugin's name, version, description, author and icon are read from your own
+        `plugin.json` at your newest version tag, so there is nothing to repeat here.
+
+        A bot checks the repository as soon as you post this and replies with what it found.
+        If something is wrong, fix it and edit this issue: the bot checks again and updates
+        the same reply.
   - type: input
     id: repository
     attributes:
       label: Repository
-      description: Public, with a `plugin.json` in it. `owner/name`, or the address of the repository.
+      description: Public, with a `plugin.json` in it. Give it as `owner/name`, or paste the repository's address.
       placeholder: owner/my-plugin
     validations:
       required: true
@@ -29,19 +31,19 @@ body:
     id: subdirectory
     attributes:
       label: Subdirectory
-      description: Only when `plugin.json` is not at the top of the repository — the folder it is in.
+      description: The folder holding `plugin.json`. Leave this empty if it is at the top of the repository.
       placeholder: plugins/my-plugin
   - type: input
     id: tags
     attributes:
       label: Search tags
-      description: Words the editor's search should match besides your name and description. Comma separated, up to eight.
+      description: Words the editor's search should match, besides your name and description. Comma separated, up to eight.
       placeholder: terrain, tools, import
   - type: textarea
     id: notes
     attributes:
       label: Anything else
-      description: What the plugin is for, if the description does not cover it. Anything a reader should know before reading the code.
+      description: What the plugin is for, if your description does not cover it, and anything worth knowing before reading the code.
   - type: checkboxes
     id: acknowledgements
     attributes:
@@ -49,9 +51,9 @@ body:
       options:
         - label: I wrote this plugin, or I am submitting it with the agreement of whoever did.
           required: true
-        - label: The repository is public, has a licence, and its `plugin.json` names what the plugin is and who wrote it.
+        - label: The repository is public, has a licence, and its `plugin.json` says what the plugin is and who wrote it.
           required: true
-        - label: I understand that a plugin runs with the editor's own privileges and is not sandboxed, and that someone here will read the code before it is listed.
+        - label: "I understand that a plugin is not sandboxed: it runs with the editor's own privileges, so someone here will read the code before it is listed."
           required: true
-        - label: I understand that being listed is not a promise the code was reviewed, and that a user installing it is shown where it comes from and warned about the above.
+        - label: I understand that being listed is not a promise the code was reviewed, and that anyone installing it is shown where it comes from and warned about the above.
           required: true

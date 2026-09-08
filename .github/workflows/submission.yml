@@ -185,7 +185,7 @@ jobs:
               "" \
               "Submitted in #$ISSUE and approved by @$ACTOR. The checks on that issue are in its comment; they say the repository can be read, not that the code has been." \
               "" \
-              "Merging rebuilds \`index.json\` and the plugin appears in Browse within the hour. Nothing about it is pinned here — what the editor installs is resolved at install time from the repository itself." \
+              "Merging rebuilds \`index.json\` and the plugin appears in Browse within the hour. Nothing about it is pinned here: what the editor installs is resolved at install time, from the repository itself." \
               "" \
               "Closes #$ISSUE")
             url=$(gh pr create --repo "$GITHUB_REPOSITORY" --base main --head "$BRANCH" \
@@ -200,7 +200,7 @@ jobs:
         run: |
           set -eu
           gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" \
-            --body "Approved. $URL adds the entry; merging it puts the plugin in Browse within the hour, and closes this."
+            --body "Approved. $URL adds the entry. Merging it puts the plugin in Browse within the hour, and closes this issue."
 
       # An approval that cannot be written has to say so, or the label sits there looking
       # like it worked.
@@ -212,4 +212,4 @@ jobs:
           set -eu
           gh issue edit "$ISSUE" --repo "$GITHUB_REPOSITORY" --remove-label approved
           gh issue comment "$ISSUE" --repo "$GITHUB_REPOSITORY" \
-            --body "The \`approved\` label was taken off again: the entry could not be written. [The run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) says why — usually the checks no longer pass because the issue was edited."
+            --body "The \`approved\` label was taken off again, because the entry could not be written. [The run]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID) says why. Usually the checks no longer pass, because the issue was edited after it was read."

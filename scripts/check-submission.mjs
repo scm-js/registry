@@ -116,8 +116,8 @@ async function checkEntry(r, manifest, base) {
   }
   if (!found) {
     r.fail(named
-      ? `\`plugin.json\` names \`${named}\`, which is not there at that commit.`
-      : "No `entry` in `plugin.json`, and neither `plugin.ts` nor `plugin.js` is there — the editor would have nothing to import.");
+      ? `\`plugin.json\` names \`${named}\`, and there is no such file at that commit.`
+      : "No `entry` in `plugin.json`, and neither `plugin.ts` nor `plugin.js` is there, so the editor would have nothing to import.");
     return;
   }
   if (str(manifest.build) === found) {
@@ -126,7 +126,7 @@ async function checkEntry(r, manifest, base) {
       const text = await head(new URL(found, base).href);
       const longest = text.split("\n").reduce((n, line) => Math.max(n, line.length), 0);
       if (longest > MINIFIED_LINE) {
-        r.warn(`\`${found}\` looks minified. Ship it readable — the repository is all a user has to judge the plugin by.`);
+        r.warn(`\`${found}\` looks minified. Ship it readable: the repository is the only thing a user has to judge the plugin by.`);
       }
     } catch (err) {
       r.warn(`Could not read \`${found}\`: ${err.message}`);
@@ -139,13 +139,13 @@ async function checkEntry(r, manifest, base) {
 /** The manifest fields a row is drawn from. Missing ones are the author's to fill in. */
 function checkManifest(r, manifest) {
   if (typeof manifest.api !== "number") {
-    r.warn("No `api` in `plugin.json`. Name the plugin API version you wrote against.");
+    r.warn("No `api` in `plugin.json`. Say which plugin API version you wrote against.");
   } else if (manifest.api > API_VERSION) {
-    r.fail(`\`api\` is ${manifest.api}; the editor implements ${API_VERSION}. Nothing could run this yet.`);
+    r.fail(`\`api\` is ${manifest.api}, and the editor implements ${API_VERSION}. Nothing could run this yet.`);
   }
   const missing = ["version", "description", "author", "icon"].filter((k) => !str(manifest[k]));
   if (missing.length > 0) {
-    r.warn(`\`plugin.json\` has no ${missing.map((m) => `\`${m}\``).join(", ")}. The manifest is the whole of what a user reads before installing.`);
+    r.warn(`\`plugin.json\` has no ${missing.map((m) => `\`${m}\``).join(", ")}. The manifest is all a user reads before deciding to install.`);
   } else {
     r.pass("The manifest names a version, a description, an author and an icon.");
   }
@@ -159,24 +159,24 @@ export async function checkSubmission({ repo, dir, tags, boxes = null }) {
 
   const full = parseRepo(repo);
   if (!full) {
-    r.fail(`\`${String(repo).slice(0, 80) || "(nothing)"}\` is not a repository. Give it as \`owner/name\` or as its GitHub address.`);
+    r.fail(`\`${String(repo).slice(0, 80) || "(nothing)"}\` is not a repository. Give it as \`owner/name\`, or paste its GitHub address.`);
     return { report: r, entry: null };
   }
   const [owner, name] = full.split("/");
 
   if (boxes && (boxes.length === 0 || boxes.some((b) => !b))) {
-    r.fail("The boxes at the bottom of the form are not all ticked. Tick them and this runs again.");
+    r.fail("The boxes at the bottom of the form are not all ticked. Tick them, and this runs again.");
   }
 
   const { tags: clean, dropped } = cleanTags(tags);
   if (dropped.length > 0) {
-    r.warn(`Dropped ${dropped.map((d) => `\`${d}\``).join(", ")} — a tag is one word of letters, digits and hyphens, and eight is the most that are kept.`);
+    r.warn(`Dropped ${dropped.map((d) => `\`${d}\``).join(", ")}. A tag is one word of letters, digits and hyphens, and only the first eight are kept.`);
   }
 
   // Already answered for, one way or the other.
   const k = repoKey(full, dir);
   if ((listing.exclude ?? []).some((e) => repoKey(String(e)) === repoKey(full))) {
-    r.fail("This repository is on the registry's `exclude` list — it is held back on purpose. Say here why it should not be.");
+    r.fail("This repository is on the registry's `exclude` list, so it is held back on purpose. Say here why it should not be.");
     return { report: r, entry: null };
   }
   if ((listing.plugins ?? []).some((p) => repoKey(p.repo, p.dir) === k)) {
@@ -191,10 +191,10 @@ export async function checkSubmission({ repo, dir, tags, boxes = null }) {
     // passed through as it came, since a guess about it would only mislead.
     const gone = /HTTP 404/.test(err.message);
     if (gone && /api\.github\.com/.test(err.message)) {
-      r.fail(`GitHub has no public \`${full}\`. Check the spelling — a private repository cannot be listed, because the editor fetches a plugin's files as an anonymous visitor.`);
+      r.fail(`GitHub has no public \`${full}\`. Check the spelling. A private repository cannot be listed either: the editor fetches a plugin's files as an anonymous visitor.`);
     } else if (gone && /raw\.githubusercontent/.test(err.message)) {
       r.fail(dir
-        ? `No \`plugin.json\` in \`${dir}/\` at that commit. It goes beside the plugin's entry file, at the top of that folder.`
+        ? `No \`plugin.json\` in \`${dir}/\` at that commit. It belongs beside the plugin's entry file, at the top of that folder.`
         : `No \`plugin.json\` at the top of \`${full}\` at that commit. If the plugin is in a folder, name the folder on the form.`);
     } else {
       r.fail(`Could not read the plugin: ${err.message}`);
@@ -205,11 +205,11 @@ export async function checkSubmission({ repo, dir, tags, boxes = null }) {
 
   const discovery = listing.discover ?? {};
   if (owner.toLowerCase() === String(discovery.org ?? "").toLowerCase()) {
-    r.warn(`A repository in the ${discovery.org} organisation named \`${discovery.prefix}…\` is listed with no entry at all. This issue is only needed to give it search tags.`);
+    r.warn(`A repository in the ${discovery.org} organisation named \`${discovery.prefix}…\` is listed on its own. This issue is only needed to give it search tags.`);
   }
   if (meta.archived) r.warn("The repository is archived, so nothing can be fixed in it while it stays that way.");
   if (meta.fork) r.warn(`This is a fork of \`${meta.parent?.full_name ?? "another repository"}\`. Submit the original unless this is your own line of it.`);
-  if (!tag) r.warn("No version tag yet. The listing follows your default branch until there is one, so every push to it changes what is offered. Tag a release.");
+  if (!tag) r.warn("No version tag yet. Until there is one the listing follows your default branch, so every push to it changes what is offered. Tag a release.");
   else r.pass(`Read from \`${tag.name}\` (\`${sha.slice(0, 7)}\`).`);
 
   checkManifest(r, manifest);
@@ -219,14 +219,14 @@ export async function checkSubmission({ repo, dir, tags, boxes = null }) {
     await getJson(`https://api.github.com/repos/${owner}/${name}/license`);
     r.pass("The repository has a licence.");
   } catch {
-    r.warn("No licence file. Without one nobody may legally copy the plugin, which includes anyone who installs it.");
+    r.warn("No licence file. Without one nobody may legally copy the plugin, and installing it is copying it.");
   }
 
   try {
     const index = JSON.parse(await readFile("index.json", "utf8"));
     // Not against itself: a plugin already in the index is one being resubmitted for tags.
     const clash = (index.plugins ?? []).find((p) => p.spec !== entry.spec && p.name?.toLowerCase() === entry.name.toLowerCase());
-    if (clash) r.warn(`Another listed plugin is also called **${entry.name}** (\`${clash.spec}\`). Two rows with one name is confusing in Browse.`);
+    if (clash) r.warn(`Another listed plugin is also called **${entry.name}** (\`${clash.spec}\`). Two rows with the same name are confusing in Browse.`);
   } catch { /* no index yet */ }
 
   const proposed = { repo: full };
@@ -242,22 +242,22 @@ const MARKER = "<!-- scm-js-registry: submission -->";
 export function renderReport({ report, entry, plugin }) {
   const out = [MARKER, ""];
   if (plugin) {
-    out.push(`**${plugin.name}**${plugin.version ? ` v${plugin.version}` : ""} — \`${plugin.spec}\``, "");
+    out.push(`**${plugin.name}**${plugin.version ? ` v${plugin.version}` : ""}, \`${plugin.spec}\``, "");
     if (plugin.description) out.push(`> ${plugin.description.split("\n")[0]}`, "");
   }
   out.push(...report.lines.map((l) => `- ${MARK[l.level]} ${l.text}`), "");
   if (report.blocked) {
-    out.push("**Blocked by the ❌ above.** Fix them and edit the issue — this comment is rewritten each time, so there is no need to open another one.");
+    out.push("**Blocked by the ❌ above.** Fix them and edit this issue. The comment is rewritten each time, so there is no need to open another one.");
   } else {
     out.push(
-      "**Nothing blocking.** Being listed is still someone's decision rather than a consequence of this passing: the editor runs a plugin with its own privileges and no sandbox, so a maintainer reads the code first. When they do, the `approved` label opens the pull request that adds the entry below, and merging it puts the plugin in Browse within the hour.",
+      "**Nothing blocking.** That is not the same as being accepted. A plugin is not sandboxed, so someone here reads the code first. When they have, the `approved` label opens a pull request adding the entry below, and merging it puts your plugin in Browse within the hour.",
     );
   }
   if (entry) {
     out.push("", "<details><summary>The entry this would add to <code>plugins.json</code></summary>", "", "```json", JSON.stringify(entry, null, 2), "```", "</details>");
   }
   const warnings = report.lines.filter((l) => l.level === "warn").length;
-  out.push("", `<sub>Checked by <a href="../blob/main/scripts/check-submission.mjs">check-submission.mjs</a>, the same reader that builds the index — ${report.lines.filter((l) => l.level === "fail").length} blocking, ${warnings} worth fixing.</sub>`);
+  out.push("", `<sub>Checked by <a href="../blob/main/scripts/check-submission.mjs">check-submission.mjs</a>, the same reader that builds the index. ${report.lines.filter((l) => l.level === "fail").length} blocking, ${warnings} worth fixing.</sub>`);
   return out.join("\n");
 }
 
@@ -300,7 +300,7 @@ async function main() {
 
   const writeFileName = flag("write");
   if (writeFileName) {
-    if (result.report.blocked || !result.entry) throw new Error("Blocked — nothing written.");
+    if (result.report.blocked || !result.entry) throw new Error("Blocked, so nothing was written.");
     await write(writeFileName, result.entry);
     console.error(`Added ${result.entry.repo} to ${writeFileName}.`);
   }
