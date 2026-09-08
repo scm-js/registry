@@ -133,6 +133,13 @@
       ],
       "default": true,
       "reviewed": "1.0.0"
+    },
+    {
+      "repo": "jeany55/plugin-hello-world",
+      "tags": [
+        "example",
+        "demo"
+      ]
     }
   ]
 }
