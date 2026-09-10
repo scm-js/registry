@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-10T01:01:34.452Z",
+  "generated": "2026-09-10T01:14:45.962Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -66,7 +66,7 @@
     {
       "spec": "github:scm-js/plugin-repair",
       "name": "Repair",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "description": "Open a map and it tells you what is wrong with it: pieces missing or damaged, the tricks protected maps play, terrain the editor cannot edit. Each problem says what the game makes of the map as it stands and what fixing it would change, and it repairs the ones you tick. Restore original puts the file back as it opened.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-repair",
@@ -78,9 +78,9 @@
         "protection",
         "sections"
       ],
-      "tag": "v1.3.0",
-      "commit": "590582a2caae5bc7574ee9d3a5b9caad0d08d3ec",
-      "updated": "2026-09-10T00:56:15Z",
+      "tag": "v1.3.1",
+      "commit": "3ad39c03fcee2eb08fc9367c07ee035778de74f8",
+      "updated": "2026-09-10T01:12:04Z",
       "default": true
     },
     {
