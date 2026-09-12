@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-12T21:42:45.302Z",
+  "generated": "2026-09-12T21:47:52.158Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -33,8 +33,8 @@
       "homepage": "https://github.com/scm-js/plugin-magenta",
       "icon": "icon.svg",
       "api": 1,
-      "commit": "53fa16568f04acf53d3796a52a674d5f5a475ae5",
-      "updated": "2026-09-12T21:42:21Z"
+      "commit": "1e0b98c16d972a3122c59332e79b1028abc7b02a",
+      "updated": "2026-09-12T21:47:42Z"
     },
     {
       "spec": "github:scm-js/plugin-melee-wizard",
