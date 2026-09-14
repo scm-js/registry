@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-14T20:09:06.522Z",
+  "generated": "2026-09-14T20:13:13.303Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -26,7 +26,7 @@
     {
       "spec": "github:scm-js/plugin-magenta",
       "name": "Magenta",
-      "version": "0.2.1",
+      "version": "0.2.2",
       "description": "A trigger editor for map makers: every trigger reads as a sentence with its parameters as chips, one search box adds any condition or action, and the map is the picker. Carries a catalogue of Remastered EUD conditions and actions that look and behave like the game's own.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-magenta",
@@ -40,9 +40,9 @@
         "remastered",
         "build"
       ],
-      "tag": "v0.2.1",
-      "commit": "dfe6b0218d04ab549678fb052c01dea6dbdf4041",
-      "updated": "2026-09-14T20:08:37Z"
+      "tag": "v0.2.2",
+      "commit": "1b9d97fd07494fe0c907e3350288adac1ef4535b",
+      "updated": "2026-09-14T20:12:44Z"
     },
     {
       "spec": "github:scm-js/plugin-melee-wizard",
