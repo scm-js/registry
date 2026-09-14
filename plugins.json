@@ -133,6 +133,16 @@
       ],
       "default": true,
       "reviewed": "1.0.0"
+    },
+    {
+      "repo": "scm-js/plugin-magenta",
+      "tags": [
+        "triggers",
+        "eud",
+        "sentences",
+        "remastered",
+        "build"
+      ]
     }
   ]
 }
