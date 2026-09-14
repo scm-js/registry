@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-14T19:59:57.535Z",
+  "generated": "2026-09-14T20:00:43.830Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -33,6 +33,13 @@
       "homepage": "https://github.com/scm-js/plugin-magenta",
       "icon": "icon.svg",
       "api": 1,
+      "tags": [
+        "triggers",
+        "eud",
+        "sentences",
+        "remastered",
+        "build"
+      ],
       "tag": "v0.2.0",
       "commit": "061444dc93eb354338fdf7d8dc4b922bba95664b",
       "updated": "2026-09-14T19:59:07Z"
