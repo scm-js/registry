@@ -2,8 +2,22 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-17T17:56:07.379Z",
+  "generated": "2026-09-17T18:58:13.363Z",
   "plugins": [
+    {
+      "spec": "github:scm-js/plugin-eudplib",
+      "name": "eudplib",
+      "version": "0.1.0",
+      "description": "A library other plugins build with: runs eudplib, the EUD trigger compiler behind euddraft, inside the editor with no server. Nothing about a map leaves the machine. The runtime is downloaded once, on the first build.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-eudplib",
+      "homepage": "https://github.com/scm-js/plugin-eudplib",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v0.1.0",
+      "commit": "6f46b4292cc1ea25e6d6cd65c2839a5fe20a6e6d",
+      "updated": "2026-09-17T18:57:39Z"
+    },
     {
       "spec": "github:scm-js/plugin-hello-world",
       "name": "Hello World",
