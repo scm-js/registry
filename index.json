@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-17T20:39:28.919Z",
+  "generated": "2026-09-18T17:52:09.982Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-eudplib",
@@ -247,7 +247,7 @@
     {
       "spec": "github:scm-js/plugin-trigscript",
       "name": "TrigScript",
-      "version": "2.6.0",
+      "version": "2.6.1",
       "description": "TypeScript kept inside the map and built into its triggers. Ordinary TypeScript — files, imports, helpers, loops — runs when you build and records one trigger per trigger() call; code inside program(() => { … }) runs in the game as a state machine of death counters, or, on the Remastered target, as EUD code built by eudplib through the eudplib plugin. Checked as you type against the map's own names, with a built-in simulator.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigscript",
@@ -259,9 +259,9 @@
         "scripting",
         "typescript"
       ],
-      "tag": "v2.6.0",
-      "commit": "4e79b3402d9528d377ff5219e804d84eba94a622",
-      "updated": "2026-09-17T20:39:25Z",
+      "tag": "v2.6.1",
+      "commit": "2664c3787c068d5435172c00542dc43f642e52ae",
+      "updated": "2026-09-18T17:51:37Z",
       "default": true
     },
     {
