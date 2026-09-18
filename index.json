@@ -2,21 +2,21 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-18T17:52:09.982Z",
+  "generated": "2026-09-18T18:31:48.922Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-eudplib",
       "name": "eudplib",
-      "version": "0.2.0",
-      "description": "A library other plugins build with: runs eudplib, the EUD trigger compiler behind euddraft, inside the editor with no server. Nothing about a map leaves the machine. The runtime is downloaded once, on the first build.",
+      "version": "0.3.0",
+      "description": "A library that lets other plugins build EUD maps: it runs eudplib, the trigger compiler behind euddraft, in your browser on your machine (WebAssembly in a Web Worker, via Pyodide). The scmJS desktop app and Docker image include the runtime; anywhere else, the first map you build downloads it once (about 15 MB).",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-eudplib",
       "homepage": "https://github.com/scm-js/plugin-eudplib",
       "icon": "icon.svg",
       "api": 1,
-      "tag": "v0.2.0",
-      "commit": "8d228f0ce51ee4f4cb30a42f74f8728b612a48f5",
-      "updated": "2026-09-17T20:39:01Z"
+      "tag": "v0.3.0",
+      "commit": "3e02bcde217f5b8fb021ec36d355ddf2764c33fa",
+      "updated": "2026-09-18T18:31:20Z"
     },
     {
       "spec": "github:scm-js/plugin-hello-world",
