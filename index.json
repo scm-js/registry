@@ -2,8 +2,22 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-19T18:46:36.171Z",
+  "generated": "2026-09-19T18:49:00.364Z",
   "plugins": [
+    {
+      "spec": "github:scm-js/plugin-eudplib",
+      "name": "eudplib",
+      "version": "0.4.1",
+      "description": "A library that lets other plugins build EUD maps: it runs eudplib, the trigger compiler behind euddraft, in your browser on your machine (WebAssembly in a Web Worker, via Pyodide). The scmJS desktop app and Docker image include the runtime; anywhere else, the first map you build downloads it once (about 15 MB).",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-eudplib",
+      "homepage": "https://github.com/scm-js/plugin-eudplib",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v0.4.1",
+      "commit": "023d370a70c7046abab344c0585303383d48c019",
+      "updated": "2026-09-18T20:01:29Z"
+    },
     {
       "spec": "github:scm-js/plugin-hello-world",
       "name": "Hello World",
@@ -233,7 +247,7 @@
     {
       "spec": "github:scm-js/plugin-trigscript",
       "name": "TrigScript",
-      "version": "3.7.0",
+      "version": "3.8.0",
       "description": "TypeScript kept inside the map. Ordinary TypeScript — files, imports, helpers, loops — runs when the script is applied and records one trigger per trigger() call: ordinary triggers that play on every version. Code inside program(() => { … }) runs in the game — variables, loops, functions, sleep — and is built into the map by the eudplib plugin when you save; a map with a program needs StarCraft: Remastered. Checked as you type against the map's own names, with a built-in simulator.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigscript",
@@ -245,9 +259,9 @@
         "scripting",
         "typescript"
       ],
-      "tag": "v3.7.0",
-      "commit": "8ff9ceac31af72c6010b1f3cf14f8113c818a329",
-      "updated": "2026-09-19T17:51:00Z",
+      "tag": "v3.8.0",
+      "commit": "e332e483c0a536024628325574f461efa654d5eb",
+      "updated": "2026-09-19T18:46:14Z",
       "default": true
     },
     {
