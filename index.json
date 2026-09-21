@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-21T01:13:11.979Z",
+  "generated": "2026-09-21T15:07:03.729Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-eudplib",
@@ -247,7 +247,7 @@
     {
       "spec": "github:scm-js/plugin-trigscript",
       "name": "TrigScript",
-      "version": "3.10.2",
+      "version": "3.10.3",
       "description": "TypeScript kept inside the map. Ordinary TypeScript — files, imports, helpers, loops — runs when the script is applied and records one trigger per trigger() call: ordinary triggers that play on every version. Code inside program(() => { … }) runs in the game — variables, loops, functions, sleep — and is built into the map by the eudplib plugin when you save; a map with a program needs StarCraft: Remastered. Checked as you type against the map's own names, with a built-in simulator.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigscript",
@@ -259,9 +259,9 @@
         "scripting",
         "typescript"
       ],
-      "tag": "v3.10.2",
-      "commit": "2e6145d920c1b934346f109151a11176d10e93cd",
-      "updated": "2026-09-21T01:09:30Z",
+      "tag": "v3.10.3",
+      "commit": "1594a8fe5d3d838f63a40e4f89ab5a6d93a23e12",
+      "updated": "2026-09-21T15:03:01Z",
       "default": true
     },
     {
