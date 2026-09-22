@@ -2,8 +2,22 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-22T01:43:12.708Z",
+  "generated": "2026-09-22T20:31:43.075Z",
   "plugins": [
+    {
+      "spec": "github:scm-js/plugin-aftermath",
+      "name": "Aftermath",
+      "version": "0.1.0",
+      "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-aftermath",
+      "homepage": "https://github.com/scm-js/plugin-aftermath",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v0.1.0",
+      "commit": "23ba29bf1ad43288df4b66c466135b5817160218",
+      "updated": "2026-09-22T20:31:03Z"
+    },
     {
       "spec": "github:scm-js/plugin-eudplib",
       "name": "eudplib",
