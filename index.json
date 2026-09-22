@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-21T17:49:06.622Z",
+  "generated": "2026-09-22T01:43:12.708Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-eudplib",
@@ -40,7 +40,7 @@
     {
       "spec": "github:scm-js/plugin-magenta",
       "name": "Magenta",
-      "version": "0.9.1",
+      "version": "0.10.0",
       "description": "A trigger editor for map makers: every trigger reads as a sentence with its parameters as chips, one search box adds any condition or action, and the map is the picker. Carries a catalogue of Remastered EUD conditions and actions that look and behave like the game's own.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-magenta",
@@ -54,9 +54,9 @@
         "remastered",
         "build"
       ],
-      "tag": "v0.9.1",
-      "commit": "a691758a7d566c7190e51be06976fc52c56e8a49",
-      "updated": "2026-09-19T00:52:26Z"
+      "tag": "v0.10.0",
+      "commit": "5098dddc06c58ec5a7449685ceb6a95dc0469cfa",
+      "updated": "2026-09-22T01:42:42Z"
     },
     {
       "spec": "github:scm-js/plugin-melee-wizard",
@@ -121,7 +121,7 @@
     {
       "spec": "github:scm-js/plugin-scmjs-dev",
       "name": "scmjs.dev",
-      "version": "1.23.2",
+      "version": "1.24.0",
       "description": "Your scmjs.dev account in the editor, and the AI that comes with it: sign in from the Account menu or the status bar, keep maps on your account with revisions and notes, and under Tools ▸ AI make a whole scenario from a sentence, lay out a map, redo an area, write and explain triggers, name and brief the map, review it, rewrite strings, or work with an assistant that reads and edits the map with you. The first AI request starts a free trial; the AI features can be turned off, leaving the account and the maps.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scmjs-dev",
@@ -135,9 +135,9 @@
         "assistant",
         "triggers"
       ],
-      "tag": "v1.23.2",
-      "commit": "10205dd9787f09332a50f362dbf203592e585617",
-      "updated": "2026-09-21T17:46:59Z",
+      "tag": "v1.24.0",
+      "commit": "85d718cd3f4f6ddaf3ef7f97862e9ffd0af3966c",
+      "updated": "2026-09-22T01:42:45Z",
       "default": true
     },
     {
