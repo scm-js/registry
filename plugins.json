@@ -143,6 +143,17 @@
         "remastered",
         "build"
       ]
+    },
+    {
+      "repo": "scm-js/plugin-aftermath",
+      "tags": [
+        "replays",
+        "heat map",
+        "build order",
+        "analysis",
+        "melee"
+      ],
+      "reviewed": "0.1.0"
     }
   ]
 }
