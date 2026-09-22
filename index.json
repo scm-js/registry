@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-22T20:31:43.075Z",
+  "generated": "2026-09-22T20:32:27.207Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -14,6 +14,14 @@
       "homepage": "https://github.com/scm-js/plugin-aftermath",
       "icon": "icon.svg",
       "api": 1,
+      "tags": [
+        "replays",
+        "heat map",
+        "build order",
+        "analysis",
+        "melee"
+      ],
+      "reviewed": "0.1.0",
       "tag": "v0.1.0",
       "commit": "23ba29bf1ad43288df4b66c466135b5817160218",
       "updated": "2026-09-22T20:31:03Z"
