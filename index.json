@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-23T02:56:36.459Z",
+  "generated": "2026-09-23T03:42:58.807Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -25,6 +25,20 @@
       "tag": "v0.1.0",
       "commit": "23ba29bf1ad43288df4b66c466135b5817160218",
       "updated": "2026-09-22T20:31:03Z"
+    },
+    {
+      "spec": "github:scm-js/plugin-eudplib",
+      "name": "eudplib",
+      "version": "0.4.1",
+      "description": "A library that lets other plugins build EUD maps: it runs eudplib, the trigger compiler behind euddraft, in your browser on your machine (WebAssembly in a Web Worker, via Pyodide). The scmJS desktop app and Docker image include the runtime; anywhere else, the first map you build downloads it once (about 15 MB).",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-eudplib",
+      "homepage": "https://github.com/scm-js/plugin-eudplib",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v0.4.1",
+      "commit": "023d370a70c7046abab344c0585303383d48c019",
+      "updated": "2026-09-18T20:01:29Z"
     },
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -129,8 +143,8 @@
     {
       "spec": "github:scm-js/plugin-scmjs-dev",
       "name": "scmjs.dev",
-      "version": "1.26.3",
-      "description": "Your scmjs.dev account in the editor, and the AI that comes with it: sign in from the Account menu or the status bar, keep maps on your account with revisions and notes, share the open map so others edit it with you at the same time, and under Tools ▸ AI make a whole scenario from a sentence, lay out a map, redo an area, write and explain triggers, name and brief the map, review it, rewrite strings, or work with an assistant that reads and edits the map with you. The first AI request starts a free trial; the AI features can be turned off, leaving the account and the maps.",
+      "version": "1.26.4",
+      "description": "Your scmjs.dev account in the editor. Keep maps on your account with revisions and notes, and share the open map so others can edit it with you at the same time. Where the server offers them, AI tools can build, lay out and review a map with you.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scmjs-dev",
       "homepage": "https://github.com/scm-js/plugin-scmjs-dev",
@@ -143,9 +157,9 @@
         "assistant",
         "triggers"
       ],
-      "tag": "v1.26.3",
-      "commit": "843347be4bd9f74a89764624185bc6645df33457",
-      "updated": "2026-09-23T02:55:47Z",
+      "tag": "v1.26.4",
+      "commit": "af262b6f82c917d1242f67241087c47fb5908c3e",
+      "updated": "2026-09-23T03:42:31Z",
       "default": true
     },
     {
