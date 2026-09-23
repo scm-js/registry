@@ -154,6 +154,16 @@
         "melee"
       ],
       "reviewed": "0.1.0"
+    },
+    {
+      "repo": "scm-js/plugin-timelapse",
+      "tags": [
+        "timelapse",
+        "gif",
+        "video",
+        "recording"
+      ],
+      "reviewed": "0.1.0"
     }
   ]
 }
