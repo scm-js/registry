@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-23T18:03:36.179Z",
+  "generated": "2026-09-23T18:46:19.219Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -25,6 +25,20 @@
       "tag": "v0.1.0",
       "commit": "23ba29bf1ad43288df4b66c466135b5817160218",
       "updated": "2026-09-22T20:31:03Z"
+    },
+    {
+      "spec": "github:scm-js/plugin-eudplib",
+      "name": "eudplib",
+      "version": "0.4.1",
+      "description": "A library that lets other plugins build EUD maps: it runs eudplib, the trigger compiler behind euddraft, in your browser on your machine (WebAssembly in a Web Worker, via Pyodide). The scmJS desktop app and Docker image include the runtime; anywhere else, the first map you build downloads it once (about 15 MB).",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-eudplib",
+      "homepage": "https://github.com/scm-js/plugin-eudplib",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v0.4.1",
+      "commit": "023d370a70c7046abab344c0585303383d48c019",
+      "updated": "2026-09-18T20:01:29Z"
     },
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -129,7 +143,7 @@
     {
       "spec": "github:scm-js/plugin-scmjs-dev",
       "name": "scmjs.dev",
-      "version": "1.31.1",
+      "version": "1.32.0",
       "description": "Your scmjs.dev account in the editor. Keep maps on your account with revisions and notes, and share the open map so others can edit it with you at the same time. Where the server offers them, AI tools can build, lay out and review a map with you.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scmjs-dev",
@@ -143,9 +157,9 @@
         "assistant",
         "triggers"
       ],
-      "tag": "v1.31.1",
-      "commit": "5abfa322fccf0d966e9427430b328edfc13a359a",
-      "updated": "2026-09-23T18:02:43Z",
+      "tag": "v1.32.0",
+      "commit": "e0fb3af7bdb8bea179181a56d1c7ba279b2264a2",
+      "updated": "2026-09-23T18:38:20Z",
       "default": true
     },
     {
