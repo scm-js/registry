@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-23T02:42:56.504Z",
+  "generated": "2026-09-23T02:50:54.169Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -143,7 +143,7 @@
     {
       "spec": "github:scm-js/plugin-scmjs-dev",
       "name": "scmjs.dev",
-      "version": "1.26.1",
+      "version": "1.26.2",
       "description": "Your scmjs.dev account in the editor, and the AI that comes with it: sign in from the Account menu or the status bar, keep maps on your account with revisions and notes, share the open map so others edit it with you at the same time, and under Tools ▸ AI make a whole scenario from a sentence, lay out a map, redo an area, write and explain triggers, name and brief the map, review it, rewrite strings, or work with an assistant that reads and edits the map with you. The first AI request starts a free trial; the AI features can be turned off, leaving the account and the maps.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scmjs-dev",
@@ -157,9 +157,9 @@
         "assistant",
         "triggers"
       ],
-      "tag": "v1.26.1",
-      "commit": "b99e571fe76b1832a7d573fc82137dc63b072350",
-      "updated": "2026-09-23T02:42:26Z",
+      "tag": "v1.26.2",
+      "commit": "767a23d16468799cd88d82cec5a69715f6475662",
+      "updated": "2026-09-23T02:50:29Z",
       "default": true
     },
     {
