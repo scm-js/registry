@@ -164,6 +164,15 @@
         "recording"
       ],
       "reviewed": "0.1.0"
+    },
+    {
+      "repo": "scm-js/plugin-api-playground",
+      "tags": [
+        "developers",
+        "plugin api",
+        "code editor",
+        "examples"
+      ]
     }
   ]
 }
