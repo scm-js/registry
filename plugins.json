@@ -121,7 +121,7 @@
         "sharing"
       ],
       "default": true,
-      "reviewed": "1.0.0"
+      "reviewed": "1.1.0"
     },
     {
       "repo": "scm-js/plugin-trigedit",
@@ -153,7 +153,7 @@
         "analysis",
         "melee"
       ],
-      "reviewed": "0.1.0"
+      "reviewed": "0.2.0"
     },
     {
       "repo": "scm-js/plugin-timelapse",
@@ -164,6 +164,15 @@
         "recording"
       ],
       "reviewed": "0.1.0"
+    },
+    {
+      "repo": "scm-js/plugin-api-playground",
+      "tags": [
+        "developers",
+        "plugin api",
+        "code editor",
+        "examples"
+      ]
     }
   ]
 }
