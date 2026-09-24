@@ -2,12 +2,12 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-23T18:46:19.219Z",
+  "generated": "2026-09-24T01:04:43.914Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
       "name": "Aftermath",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-aftermath",
@@ -21,24 +21,23 @@
         "analysis",
         "melee"
       ],
-      "reviewed": "0.1.0",
-      "tag": "v0.1.0",
-      "commit": "23ba29bf1ad43288df4b66c466135b5817160218",
-      "updated": "2026-09-22T20:31:03Z"
+      "tag": "v0.2.0",
+      "commit": "21f3ae76804c59bdd5d5b1a55257b2fde9e575df",
+      "updated": "2026-09-24T00:54:05Z"
     },
     {
       "spec": "github:scm-js/plugin-eudplib",
       "name": "eudplib",
-      "version": "0.4.1",
+      "version": "0.5.0",
       "description": "A library that lets other plugins build EUD maps: it runs eudplib, the trigger compiler behind euddraft, in your browser on your machine (WebAssembly in a Web Worker, via Pyodide). The scmJS desktop app and Docker image include the runtime; anywhere else, the first map you build downloads it once (about 15 MB).",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-eudplib",
       "homepage": "https://github.com/scm-js/plugin-eudplib",
       "icon": "icon.svg",
       "api": 1,
-      "tag": "v0.4.1",
-      "commit": "023d370a70c7046abab344c0585303383d48c019",
-      "updated": "2026-09-18T20:01:29Z"
+      "tag": "v0.5.0",
+      "commit": "8157aa9a7d149d4955278c2a7ec80f00df8f0255",
+      "updated": "2026-09-24T00:54:05Z"
     },
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -123,7 +122,7 @@
     {
       "spec": "github:scm-js/plugin-repair",
       "name": "Repair",
-      "version": "1.3.1",
+      "version": "1.4.0",
       "description": "Open a map and it tells you what is wrong with it: pieces missing or damaged, the tricks protected maps play, terrain the editor cannot edit. Each problem says what the game makes of the map as it stands and what fixing it would change, and it repairs the ones you tick. Restore original puts the file back as it opened.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-repair",
@@ -135,15 +134,15 @@
         "protection",
         "sections"
       ],
-      "tag": "v1.3.1",
-      "commit": "3ad39c03fcee2eb08fc9367c07ee035778de74f8",
-      "updated": "2026-09-10T01:12:04Z",
+      "tag": "v1.4.0",
+      "commit": "c3fc66a3744b898d1979127dbccdc7ae90c91c01",
+      "updated": "2026-09-24T00:54:05Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-scmjs-dev",
       "name": "scmjs.dev",
-      "version": "1.32.0",
+      "version": "1.33.0",
       "description": "Your scmjs.dev account in the editor. Keep maps on your account with revisions and notes, and share the open map so others can edit it with you at the same time. Where the server offers them, AI tools can build, lay out and review a map with you.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scmjs-dev",
@@ -157,15 +156,15 @@
         "assistant",
         "triggers"
       ],
-      "tag": "v1.32.0",
-      "commit": "e0fb3af7bdb8bea179181a56d1c7ba279b2264a2",
-      "updated": "2026-09-23T18:38:20Z",
+      "tag": "v1.33.0",
+      "commit": "d9b5af098cc7c7c64e1d2b256d5f6e8afff985f7",
+      "updated": "2026-09-24T00:30:39Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-scm-scx",
       "name": "scmscx.com",
-      "version": "1.1.2",
+      "version": "1.2.0",
       "description": "Search scmscx.com, the StarCraft map archive, and open a map from it in the editor. The one item this plugin adds reaches scmscx.com over the network; its mark sits beside it.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-scx",
@@ -177,9 +176,9 @@
         "search",
         "download"
       ],
-      "tag": "v1.1.2",
-      "commit": "6423f3543df99062279f50b8f6d032e4d93fe32a",
-      "updated": "2026-09-05T19:43:17Z",
+      "tag": "v1.2.0",
+      "commit": "bbd7b9d20884c7822c06e85af410bef1ca563870",
+      "updated": "2026-09-24T00:54:05Z",
       "default": true
     },
     {
@@ -204,7 +203,7 @@
     {
       "spec": "github:scm-js/plugin-stamp-library",
       "name": "Stamp Library",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "Keep the pieces you build once — hand-tuned ramps, bridges, cliff corners, a whole base — as named stamps that stay with the editor across maps. Click one to lay it down anywhere, with a preview under the pointer. Search and tag the library, and share it as a JSON file or a stamp as a line of text.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-stamp-library",
@@ -218,10 +217,9 @@
         "library",
         "sharing"
       ],
-      "reviewed": "1.0.0",
-      "tag": "v1.0.0",
-      "commit": "c6423b3b44da4b233940df464da9a72cfe79e31e",
-      "updated": "2026-09-07T23:26:53Z",
+      "tag": "v1.1.0",
+      "commit": "943714b560991c3ea26a44b596163b386d60fcb8",
+      "updated": "2026-09-24T00:54:05Z",
       "default": true
     },
     {
