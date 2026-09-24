@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-24T01:05:45.664Z",
+  "generated": "2026-09-24T01:08:07.903Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -21,6 +21,7 @@
         "analysis",
         "melee"
       ],
+      "reviewed": "0.2.0",
       "tag": "v0.2.0",
       "commit": "21f3ae76804c59bdd5d5b1a55257b2fde9e575df",
       "updated": "2026-09-24T00:54:05Z"
@@ -231,6 +232,7 @@
         "library",
         "sharing"
       ],
+      "reviewed": "1.1.0",
       "tag": "v1.1.0",
       "commit": "943714b560991c3ea26a44b596163b386d60fcb8",
       "updated": "2026-09-24T00:54:05Z",
