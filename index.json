@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-24T01:31:59.395Z",
+  "generated": "2026-09-24T01:57:18.100Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -36,6 +36,12 @@
       "homepage": "https://github.com/scm-js/plugin-api-playground",
       "icon": "icon.svg",
       "api": 1,
+      "tags": [
+        "developers",
+        "plugin api",
+        "code editor",
+        "examples"
+      ],
       "tag": "v0.1.1",
       "commit": "309e6eb0807c6572d3de928f01a844bbcd35a61d",
       "updated": "2026-09-24T01:15:27Z"
