@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-24T01:04:43.914Z",
+  "generated": "2026-09-24T01:05:45.664Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -24,6 +24,20 @@
       "tag": "v0.2.0",
       "commit": "21f3ae76804c59bdd5d5b1a55257b2fde9e575df",
       "updated": "2026-09-24T00:54:05Z"
+    },
+    {
+      "spec": "github:scm-js/plugin-api-playground",
+      "name": "API Playground",
+      "version": "0.1.0",
+      "description": "Try the plugin API without writing a plugin. A panel with a code editor where `api` is already in scope, with completion and the reference on hover: write a few lines, run them, and the map changes. Everything a run registers is taken back on Stop. Save snippets, start from worked examples, and export one as a starter plugin.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-api-playground",
+      "homepage": "https://github.com/scm-js/plugin-api-playground",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v0.1.0",
+      "commit": "cda39b58ae55a7435f2ae03a073fda80892d161a",
+      "updated": "2026-09-23T22:04:00Z"
     },
     {
       "spec": "github:scm-js/plugin-eudplib",
