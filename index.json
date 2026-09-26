@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-26T22:49:38.684Z",
+  "generated": "2026-09-26T23:14:23.594Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -312,6 +312,13 @@
       "homepage": "https://github.com/scm-js/plugin-trigger-map",
       "icon": "icon.svg",
       "api": 1,
+      "tags": [
+        "triggers",
+        "graph",
+        "switches",
+        "death counters",
+        "debugging"
+      ],
       "tag": "v0.1.1",
       "commit": "3da645300d3e7a4dcc4405f52c1a148fa283aaf0",
       "updated": "2026-09-26T22:03:48Z"
