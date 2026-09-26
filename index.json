@@ -2,12 +2,12 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-26T20:04:06.379Z",
+  "generated": "2026-09-26T22:33:28.793Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
       "name": "Aftermath",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-aftermath",
@@ -21,15 +21,14 @@
         "analysis",
         "melee"
       ],
-      "reviewed": "0.2.0",
-      "tag": "v0.2.0",
-      "commit": "21f3ae76804c59bdd5d5b1a55257b2fde9e575df",
-      "updated": "2026-09-24T00:54:05Z"
+      "tag": "v0.3.0",
+      "commit": "5bee07de90d9c97e9f0265f2839008c604803f73",
+      "updated": "2026-09-26T22:02:29Z"
     },
     {
       "spec": "github:scm-js/plugin-api-playground",
       "name": "API Playground",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "description": "Try the plugin API without writing a plugin. A panel with a code editor where `api` is already in scope, with completion and the reference on hover: write a few lines, run them, and the map changes. Everything a run registers is taken back on Stop. Save snippets, start from worked examples, and export one as a starter plugin.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-api-playground",
@@ -42,28 +41,28 @@
         "code editor",
         "examples"
       ],
-      "tag": "v0.1.1",
-      "commit": "309e6eb0807c6572d3de928f01a844bbcd35a61d",
-      "updated": "2026-09-24T01:15:27Z"
+      "tag": "v0.1.2",
+      "commit": "680ff5814477ebb49010103437d502c1c4f00fce",
+      "updated": "2026-09-26T22:03:48Z"
     },
     {
       "spec": "github:scm-js/plugin-eudplib",
       "name": "eudplib",
-      "version": "0.5.0",
+      "version": "0.6.0",
       "description": "A library that lets other plugins build EUD maps: it runs eudplib, the trigger compiler behind euddraft, in your browser on your machine (WebAssembly in a Web Worker, via Pyodide). The scmJS desktop app and Docker image include the runtime; anywhere else, the first map you build downloads it once (about 15 MB).",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-eudplib",
       "homepage": "https://github.com/scm-js/plugin-eudplib",
       "icon": "icon.svg",
       "api": 1,
-      "tag": "v0.5.0",
-      "commit": "8157aa9a7d149d4955278c2a7ec80f00df8f0255",
-      "updated": "2026-09-24T00:54:05Z"
+      "tag": "v0.6.0",
+      "commit": "7cd0f554afbecd043c2db16889552443b2ca22ca",
+      "updated": "2026-09-26T22:00:45Z"
     },
     {
       "spec": "github:scm-js/plugin-hello-world",
       "name": "Hello World",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "An example plugin to copy from. It adds one Tools menu item that opens a small pane showing the name of the map you have open.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-hello-world",
@@ -74,15 +73,14 @@
         "example",
         "template"
       ],
-      "reviewed": "1.0.0",
-      "tag": "v1.0.0",
-      "commit": "d021070ac3da2f9163fc5317bd1114235020ceab",
-      "updated": "2026-09-04T16:26:03Z"
+      "tag": "v1.1.0",
+      "commit": "4c4d7e664bcb4426f72f13cdec35af3a491b4d6c",
+      "updated": "2026-09-26T22:05:08Z"
     },
     {
       "spec": "github:scm-js/plugin-magenta",
       "name": "Magenta",
-      "version": "0.10.0",
+      "version": "0.11.0",
       "description": "A trigger editor for map makers: every trigger reads as a sentence with its parameters as chips, one search box adds any condition or action, and the map is the picker. Carries a catalogue of Remastered EUD conditions and actions that look and behave like the game's own.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-magenta",
@@ -96,14 +94,14 @@
         "remastered",
         "build"
       ],
-      "tag": "v0.10.0",
-      "commit": "5098dddc06c58ec5a7449685ceb6a95dc0469cfa",
-      "updated": "2026-09-22T01:42:42Z"
+      "tag": "v0.11.0",
+      "commit": "1d8057d5d6ea0243f87ec5450ff2ed72482a0e54",
+      "updated": "2026-09-26T22:22:39Z"
     },
     {
       "spec": "github:scm-js/plugin-melee-wizard",
       "name": "Melee Wizard",
-      "version": "1.0.2",
+      "version": "1.1.0",
       "description": "Builds a ladder-style map's bases in one action each: symmetric start locations for 2, 4 or 8 players, and mineral lines with the geyser laid out on the three-tile ring the game mines fastest from, mirrored to every player. Also mirrors what you select and checks the map's symmetry.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-melee-wizard",
@@ -115,9 +113,9 @@
         "start locations",
         "bases"
       ],
-      "tag": "v1.0.2",
-      "commit": "55f4f6dc29d20e8a6e3c8565941cabc2f94ad38c",
-      "updated": "2026-09-07T21:50:26Z"
+      "tag": "v1.1.0",
+      "commit": "f2c615c225cbbbd47380b0ce9cdcb4cfbd029181",
+      "updated": "2026-09-26T22:13:34Z"
     },
     {
       "spec": "github:scm-js/plugin-paint",
@@ -247,7 +245,7 @@
     {
       "spec": "github:scm-js/plugin-image-to-terrain",
       "name": "Terrain from Image",
-      "version": "1.0.2",
+      "version": "1.1.0",
       "description": "Turn a picture into terrain. Give it an image, say which colour means which terrain, and it lays out the map to match, cliffs and shores included.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-image-to-terrain",
@@ -259,9 +257,9 @@
         "import",
         "image"
       ],
-      "tag": "v1.0.2",
-      "commit": "bf2f17a854b4425090dede96cd9551a115523727",
-      "updated": "2026-09-05T19:11:05Z",
+      "tag": "v1.1.0",
+      "commit": "718362446a1617dec0a2a302cea28f7bce2295fe",
+      "updated": "2026-09-26T22:14:19Z",
       "default": true
     },
     {
