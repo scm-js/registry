@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-26T22:33:55.691Z",
+  "generated": "2026-09-26T22:34:20.949Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -222,7 +222,7 @@
     {
       "spec": "github:scm-js/plugin-stamp-library",
       "name": "Stamp Library",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "description": "Keep the pieces you build once — hand-tuned ramps, bridges, cliff corners, a whole base — as named stamps that stay with the editor across maps. Click one to lay it down anywhere, with a preview under the pointer. Search and tag the library, and share it as a JSON file or a stamp as a line of text.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-stamp-library",
@@ -236,10 +236,9 @@
         "library",
         "sharing"
       ],
-      "reviewed": "1.1.0",
-      "tag": "v1.1.0",
-      "commit": "943714b560991c3ea26a44b596163b386d60fcb8",
-      "updated": "2026-09-24T00:54:05Z",
+      "tag": "v1.2.0",
+      "commit": "93afce25dff8e222289e9f8c08488c861107020c",
+      "updated": "2026-09-26T22:05:06Z",
       "default": true
     },
     {
@@ -265,7 +264,7 @@
     {
       "spec": "github:scm-js/plugin-timelapse",
       "name": "Timelapse",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "Records the map as you build it, one frame per edit, and plays the recording back as an animation. Export it as a GIF or a WebM video. A map you open again keeps adding to the same recording.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-timelapse",
@@ -278,15 +277,14 @@
         "video",
         "recording"
       ],
-      "reviewed": "0.1.0",
-      "tag": "v0.1.0",
-      "commit": "030034ad65282b971e1fe7a279069a729046af1b",
-      "updated": "2026-09-23T14:36:27Z"
+      "tag": "v0.1.1",
+      "commit": "efe56ad4a6a15ddb2d87b98dc431e2253daf9196",
+      "updated": "2026-09-26T22:03:48Z"
     },
     {
       "spec": "github:scm-js/plugin-trigedit",
       "name": "TrigEdit",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "The Text Trigger Editor: the map's triggers as text in SCMDraft 2's TrigEdit syntax, so text from SCMDraft pastes in and text from here pastes back out. Compile checks it and says which line does not parse. Edits the mission briefing in the same syntax.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigedit",
@@ -299,30 +297,29 @@
         "trigedit",
         "scmdraft"
       ],
-      "reviewed": "1.0.0",
-      "tag": "v1.0.0",
-      "commit": "0e69880a484d09279c48ef7abd6552885409c27f",
-      "updated": "2026-09-07T23:56:15Z",
+      "tag": "v1.1.0",
+      "commit": "5364ffdb3309858f8fd0fac351b738f47203cc24",
+      "updated": "2026-09-26T22:03:49Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-trigger-map",
       "name": "Trigger Map",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "description": "The map's triggers as a graph you can walk. Pick a trigger to see what it waits for and which triggers set that, and what it changes and which triggers read it; pick a switch, death counter, location or Victory to see who writes it and who reads it. Lists what looks wrong: switches nothing sets, counters nothing reads, locations that are not there, triggers that never run.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigger-map",
       "homepage": "https://github.com/scm-js/plugin-trigger-map",
       "icon": "icon.svg",
       "api": 1,
-      "tag": "v0.1.0",
-      "commit": "76debe65458f6b804d583e0bf3225c4aa9ca3487",
-      "updated": "2026-09-26T20:03:02Z"
+      "tag": "v0.1.1",
+      "commit": "3da645300d3e7a4dcc4405f52c1a148fa283aaf0",
+      "updated": "2026-09-26T22:03:48Z"
     },
     {
       "spec": "github:scm-js/plugin-trigscript",
       "name": "TrigScript",
-      "version": "3.10.4",
+      "version": "3.11.0",
       "description": "TypeScript kept inside the map. Ordinary TypeScript — files, imports, helpers, loops — runs when the script is applied and records one trigger per trigger() call: ordinary triggers that play on every version. Code inside program(() => { … }) runs in the game — variables, loops, functions, sleep — and is built into the map by the eudplib plugin when you save; a map with a program needs StarCraft: Remastered. Checked as you type against the map's own names, with a built-in simulator.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigscript",
@@ -334,15 +331,15 @@
         "scripting",
         "typescript"
       ],
-      "tag": "v3.10.4",
-      "commit": "d291c15dc790a988be616ef8dfd16c8eec1add69",
-      "updated": "2026-09-21T16:07:01Z",
+      "tag": "v3.11.0",
+      "commit": "7aac00e7c9110d6da071a16cac9bf35c019d5b46",
+      "updated": "2026-09-26T22:21:01Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-walkability",
       "name": "Walkability",
-      "version": "1.1.2",
+      "version": "1.2.0",
       "description": "Reads the ground the way a unit does: islands, unreachable pockets, the areas a map divides into and the chokes between them with their widths, cliff seams with no ramp, and the ground distance between every pair of start locations, drawn over the map.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-walkability",
@@ -354,9 +351,9 @@
         "melee",
         "overlay"
       ],
-      "tag": "v1.1.2",
-      "commit": "f9454536cb920d0047cdc472f73599794536ccb2",
-      "updated": "2026-09-05T19:11:05Z",
+      "tag": "v1.2.0",
+      "commit": "f33f446b09139af684581fcf89dd9e5544a8aece",
+      "updated": "2026-09-26T22:09:08Z",
       "default": true
     }
   ]
