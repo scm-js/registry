@@ -2,12 +2,12 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-26T22:34:42.640Z",
+  "generated": "2026-09-26T22:38:35.382Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
       "name": "Aftermath",
-      "version": "0.3.0",
+      "version": "0.3.1",
       "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-aftermath",
@@ -21,9 +21,9 @@
         "analysis",
         "melee"
       ],
-      "tag": "v0.3.0",
-      "commit": "5bee07de90d9c97e9f0265f2839008c604803f73",
-      "updated": "2026-09-26T22:02:29Z"
+      "tag": "v0.3.1",
+      "commit": "50031e638e1bb3b79a610aeed09535bba5ccb132",
+      "updated": "2026-09-26T22:38:07Z"
     },
     {
       "spec": "github:scm-js/plugin-api-playground",
@@ -44,6 +44,20 @@
       "tag": "v0.1.2",
       "commit": "680ff5814477ebb49010103437d502c1c4f00fce",
       "updated": "2026-09-26T22:03:48Z"
+    },
+    {
+      "spec": "github:scm-js/plugin-eudplib",
+      "name": "eudplib",
+      "version": "0.6.0",
+      "description": "A library that lets other plugins build EUD maps: it runs eudplib, the trigger compiler behind euddraft, in your browser on your machine (WebAssembly in a Web Worker, via Pyodide). The scmJS desktop app and Docker image include the runtime; anywhere else, the first map you build downloads it once (about 15 MB).",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-eudplib",
+      "homepage": "https://github.com/scm-js/plugin-eudplib",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v0.6.0",
+      "commit": "7cd0f554afbecd043c2db16889552443b2ca22ca",
+      "updated": "2026-09-26T22:00:45Z"
     },
     {
       "spec": "github:scm-js/plugin-hello-world",
@@ -287,6 +301,20 @@
       "commit": "5364ffdb3309858f8fd0fac351b738f47203cc24",
       "updated": "2026-09-26T22:03:49Z",
       "default": true
+    },
+    {
+      "spec": "github:scm-js/plugin-trigger-map",
+      "name": "Trigger Map",
+      "version": "0.1.1",
+      "description": "The map's triggers as a graph you can walk. Pick a trigger to see what it waits for and which triggers set that, and what it changes and which triggers read it; pick a switch, death counter, location or Victory to see who writes it and who reads it. Lists what looks wrong: switches nothing sets, counters nothing reads, locations that are not there, triggers that never run.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-trigger-map",
+      "homepage": "https://github.com/scm-js/plugin-trigger-map",
+      "icon": "icon.svg",
+      "api": 1,
+      "tag": "v0.1.1",
+      "commit": "3da645300d3e7a4dcc4405f52c1a148fa283aaf0",
+      "updated": "2026-09-26T22:03:48Z"
     },
     {
       "spec": "github:scm-js/plugin-trigscript",
