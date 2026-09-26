@@ -173,6 +173,16 @@
         "code editor",
         "examples"
       ]
+    },
+    {
+      "repo": "scm-js/plugin-trigger-map",
+      "tags": [
+        "triggers",
+        "graph",
+        "switches",
+        "death counters",
+        "debugging"
+      ]
     }
   ]
 }
