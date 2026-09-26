@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-24T01:57:18.100Z",
+  "generated": "2026-09-26T20:03:35.518Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -306,6 +306,19 @@
       "commit": "0e69880a484d09279c48ef7abd6552885409c27f",
       "updated": "2026-09-07T23:56:15Z",
       "default": true
+    },
+    {
+      "spec": "github:scm-js/plugin-trigger-map",
+      "name": "Trigger Map",
+      "version": "0.1.0",
+      "description": "The map's triggers as a graph you can walk. Pick a trigger to see what it waits for and which triggers set that, and what it changes and which triggers read it; pick a switch, death counter, location or Victory to see who writes it and who reads it. Lists what looks wrong: switches nothing sets, counters nothing reads, locations that are not there, triggers that never run.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-trigger-map",
+      "homepage": "https://github.com/scm-js/plugin-trigger-map",
+      "icon": "icon.svg",
+      "api": 1,
+      "commit": "76debe65458f6b804d583e0bf3225c4aa9ca3487",
+      "updated": "2026-09-26T20:03:02Z"
     },
     {
       "spec": "github:scm-js/plugin-trigscript",
