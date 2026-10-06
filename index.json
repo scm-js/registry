@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-09-27T14:17:05.316Z",
+  "generated": "2026-10-06T02:06:35.486Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -161,7 +161,7 @@
     {
       "spec": "github:scm-js/plugin-scmjs-dev",
       "name": "scmjs.dev",
-      "version": "1.34.0",
+      "version": "1.34.1",
       "description": "Your scmjs.dev account in the editor. Keep maps on your account with revisions and notes, and share the open map so others can edit it with you at the same time. Where the server offers them, AI tools can build, lay out and review a map with you.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scmjs-dev",
@@ -175,9 +175,9 @@
         "assistant",
         "triggers"
       ],
-      "tag": "v1.34.0",
-      "commit": "3379ba3423ea0987f05167145f5168a9a39d4898",
-      "updated": "2026-09-26T22:12:55Z",
+      "tag": "v1.34.1",
+      "commit": "fbcd3ba2ea128cce0ee6d5d0a08e1fc047be8025",
+      "updated": "2026-10-06T02:06:00Z",
       "default": true
     },
     {
