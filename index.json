@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-10-13T23:35:39.161Z",
+  "generated": "2026-10-13T23:36:50.211Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -168,6 +168,7 @@
       "homepage": "https://github.com/scm-js/plugin-scm-sim",
       "icon": "icon.svg",
       "api": 1,
+      "tag": "v0.1.0",
       "commit": "fd1ca0a458ac5985ec5ad10ac2ac402b6daf1b19",
       "updated": "2026-10-13T23:35:09Z"
     },
