@@ -166,6 +166,18 @@
       "reviewed": "0.1.0"
     },
     {
+      "repo": "scm-js/plugin-scm-sim",
+      "tags": [
+        "library",
+        "replays",
+        "play",
+        "test map",
+        "engine"
+      ],
+      "default": true,
+      "reviewed": "0.1.0"
+    },
+    {
       "repo": "scm-js/plugin-api-playground",
       "tags": [
         "developers",
