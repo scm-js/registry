@@ -2,12 +2,12 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-10-14T19:00:13.075Z",
+  "generated": "2026-10-15T00:04:59.043Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
       "name": "Aftermath",
-      "version": "0.7.0",
+      "version": "0.8.0",
       "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back. At scmjs.dev it can also play the game through and show what happened: the units where they stood, what was really built and lost, and each player's army and economy through the game.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-aftermath",
@@ -21,10 +21,9 @@
         "analysis",
         "melee"
       ],
-      "reviewed": "0.7.0",
-      "tag": "v0.7.0",
-      "commit": "dda735969467990a340beca1d9c7dcc278bade11",
-      "updated": "2026-10-14T02:36:19Z"
+      "tag": "v0.8.0",
+      "commit": "859e9d6de0ff00118f6c6c2374cde4ae4e88235a",
+      "updated": "2026-10-15T00:02:37Z"
     },
     {
       "spec": "github:scm-js/plugin-api-playground",
@@ -142,7 +141,7 @@
     {
       "spec": "github:scm-js/plugin-repair",
       "name": "Repair",
-      "version": "1.6.0",
+      "version": "1.6.1",
       "description": "Open a map and it repairs what is safe to repair: pieces missing or damaged, the tricks protected maps play, terrain the editor cannot edit. What is a judgement call waits in the status bar, each problem saying what the game makes of the map as it stands and what fixing it would change. Undo puts the file back as it opened.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-repair",
@@ -154,15 +153,15 @@
         "protection",
         "sections"
       ],
-      "tag": "v1.6.0",
-      "commit": "37304f5938ae91c1e8c7572690183a0690bf2d02",
-      "updated": "2026-10-14T18:59:06Z",
+      "tag": "v1.6.1",
+      "commit": "294a07ed661c77e2773f2ab36d0881772fb707ae",
+      "updated": "2026-10-15T00:02:53Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-scm-sim",
       "name": "scm-sim",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "description": "A library that lets other plugins use the site's game engine, the one behind scmjs.dev/play: play a replay to its end and get back what happened in it (every unit made, finished and lost, each player's resources, supply and army through the game, where units stood), or start a map in a browser tab. It also adds Tools ▸ Test Map in Browser. It holds no engine itself and works where the editor is served beside the play page.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-sim",
@@ -176,10 +175,9 @@
         "test map",
         "engine"
       ],
-      "reviewed": "0.3.0",
-      "tag": "v0.3.0",
-      "commit": "bd04176fb7bb15d0717e41aa752ebbffb528591d",
-      "updated": "2026-10-14T02:36:03Z",
+      "tag": "v0.4.0",
+      "commit": "f93b5224ac809dad8948e63e932c9559678941c3",
+      "updated": "2026-10-15T00:03:12Z",
       "default": true
     },
     {
