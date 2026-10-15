@@ -2,13 +2,13 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-10-15T22:13:15.767Z",
+  "generated": "2026-10-15T22:54:31.774Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
       "name": "Aftermath",
-      "version": "0.9.0",
-      "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back. At scmjs.dev it also shows the game itself in the map's place, played by the game's own code with its own graphics, and plays it through to show what happened: the units where they stood, what was really built and lost, and each player's army and economy through the game.",
+      "version": "0.12.0",
+      "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back. At scmjs.dev it also shows the game itself in the map's place, played by the game's own code with its own graphics, and plays it through to show what happened: the units where they stood, what was really built and lost, and each player's army, economy and tech through the game.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-aftermath",
       "homepage": "https://github.com/scm-js/plugin-aftermath",
@@ -21,10 +21,9 @@
         "analysis",
         "melee"
       ],
-      "reviewed": "0.9.0",
-      "tag": "v0.9.0",
-      "commit": "cd285d50fa27e45c3f6db6b5402c810db0de3502",
-      "updated": "2026-10-15T15:11:51Z"
+      "tag": "v0.12.0",
+      "commit": "0812b26b37d59660b7f03256fdd7db74e99ed8c9",
+      "updated": "2026-10-15T22:13:00Z"
     },
     {
       "spec": "github:scm-js/plugin-api-playground",
@@ -185,7 +184,7 @@
     {
       "spec": "github:scm-js/plugin-scmjs-dev",
       "name": "scmjs.dev",
-      "version": "1.36.0",
+      "version": "1.37.0",
       "description": "Your scmjs.dev account in the editor. Keep maps on your account with revisions and notes, and share the open map so others can edit it with you at the same time. Where the server offers them, AI tools can build, lay out and review a map with you.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scmjs-dev",
@@ -199,9 +198,9 @@
         "assistant",
         "triggers"
       ],
-      "tag": "v1.36.0",
-      "commit": "d6e1c326ae87ef86eaa051efab48f9b317850525",
-      "updated": "2026-10-13T23:43:12Z",
+      "tag": "v1.37.0",
+      "commit": "2f8d7a0d58d62f338e93cc03d3b7b375b91df8a0",
+      "updated": "2026-10-15T21:29:19Z",
       "default": true
     },
     {
