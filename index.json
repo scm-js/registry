@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-10-15T00:49:47.441Z",
+  "generated": "2026-10-15T06:16:55.834Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -142,7 +142,7 @@
     {
       "spec": "github:scm-js/plugin-repair",
       "name": "Repair",
-      "version": "1.6.1",
+      "version": "1.6.2",
       "description": "Open a map and it repairs what is safe to repair: pieces missing or damaged, the tricks protected maps play, terrain the editor cannot edit. What is a judgement call waits in the status bar, each problem saying what the game makes of the map as it stands and what fixing it would change. Undo puts the file back as it opened.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-repair",
@@ -154,9 +154,9 @@
         "protection",
         "sections"
       ],
-      "tag": "v1.6.1",
-      "commit": "294a07ed661c77e2773f2ab36d0881772fb707ae",
-      "updated": "2026-10-15T00:02:53Z",
+      "tag": "v1.6.2",
+      "commit": "7756de6f504904b03bcdce9f83d81eea4f5949a5",
+      "updated": "2026-10-15T06:15:57Z",
       "default": true
     },
     {
