@@ -2,12 +2,12 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-10-16T04:16:16.181Z",
+  "generated": "2026-10-16T05:16:36.606Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
       "name": "Aftermath",
-      "version": "0.13.0",
+      "version": "0.13.1",
       "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back. At scmjs.dev it also shows the game itself in the map's place, played by the game's own code with its own graphics, and plays it through to show what happened: the units where they stood, what was really built and lost, and each player's army, economy and tech through the game.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-aftermath",
@@ -21,9 +21,9 @@
         "analysis",
         "melee"
       ],
-      "tag": "v0.13.0",
-      "commit": "4e8109720454e55c0dfcaf405b9ca19f7f2c273f",
-      "updated": "2026-10-15T23:29:39Z"
+      "tag": "v0.13.1",
+      "commit": "e1e4b17fe73b9977c4ce55cc58b9d084ce4aad14",
+      "updated": "2026-10-16T05:11:26Z"
     },
     {
       "spec": "github:scm-js/plugin-api-playground",
