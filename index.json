@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-10-16T01:44:41.620Z",
+  "generated": "2026-10-16T03:05:19.145Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -161,8 +161,8 @@
     {
       "spec": "github:scm-js/plugin-scm-sim",
       "name": "scm-sim",
-      "version": "0.7.0",
-      "description": "A library that lets other plugins use the site's game engine, the one behind scmjs.dev/play: play a replay to its end and get back what happened in it (every unit made, finished and lost, each player's resources, supply and army through the game, where units stood), work out a map's pathing as the game walks it (its regions, and how units get between the start locations), or start a map in a browser tab. It also adds Tools ▸ Test Map in Browser. It holds no engine itself and works where the editor is served beside the play page.",
+      "version": "0.8.0",
+      "description": "A library that lets other plugins use the site's game engine, the one behind scmjs.dev/play: play a replay to its end and get back what happened in it (every unit made, finished and lost, each player's resources, supply and army through the game, where units stood), work out a map's pathing as the game walks it (its regions, and how units get between the start locations), measure groups through chokes and each base's mining, or start a map in a browser tab. It also adds Tools ▸ Test Map in Browser. It holds no engine itself and works where the editor is served beside the play page.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-sim",
       "homepage": "https://github.com/scm-js/plugin-scm-sim",
@@ -175,9 +175,9 @@
         "test map",
         "engine"
       ],
-      "tag": "v0.7.0",
-      "commit": "595e9863c0831de9f9d4e3ac037cd511b67eb55a",
-      "updated": "2026-10-16T01:27:33Z",
+      "tag": "v0.8.0",
+      "commit": "62afc8f52a07caa49a3358541d79b3b557d4f9e1",
+      "updated": "2026-10-16T03:03:13Z",
       "default": true
     },
     {
@@ -368,8 +368,8 @@
     {
       "spec": "github:scm-js/plugin-walkability",
       "name": "Walkability",
-      "version": "1.3.0",
-      "description": "Reads the ground the way a unit does: islands, unreachable pockets, the areas a map divides into and the chokes between them with their widths, cliff seams with no ramp, and the ground distance between every pair of start locations, drawn over the map. At scmjs.dev it can also have the game itself walk the map, with the game's own regions and pathfinding.",
+      "version": "1.4.0",
+      "description": "Reads the ground the way a unit does: islands, unreachable pockets, the areas a map divides into and the chokes between them with their widths, cliff seams with no ramp, and the ground distance between every pair of start locations, drawn over the map. At scmjs.dev it can also have the game itself walk the map, with the game's own regions and pathfinding, time groups through the chokes, and measure each base's mining.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-walkability",
       "homepage": "https://github.com/scm-js/plugin-walkability",
@@ -380,9 +380,9 @@
         "melee",
         "overlay"
       ],
-      "tag": "v1.3.0",
-      "commit": "b4f8ce44e121bb873e9e8ac3b258f3db4a073138",
-      "updated": "2026-10-16T01:42:34Z",
+      "tag": "v1.4.0",
+      "commit": "713454a65b98ceb81f33035bea6b77c6947b75e2",
+      "updated": "2026-10-16T03:03:27Z",
       "default": true
     }
   ]
