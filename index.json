@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-10-16T01:23:33.260Z",
+  "generated": "2026-10-16T01:28:03.079Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -161,8 +161,8 @@
     {
       "spec": "github:scm-js/plugin-scm-sim",
       "name": "scm-sim",
-      "version": "0.6.0",
-      "description": "A library that lets other plugins use the site's game engine, the one behind scmjs.dev/play: play a replay to its end and get back what happened in it (every unit made, finished and lost, each player's resources, supply and army through the game, where units stood), or start a map in a browser tab. It also adds Tools ▸ Test Map in Browser. It holds no engine itself and works where the editor is served beside the play page.",
+      "version": "0.7.0",
+      "description": "A library that lets other plugins use the site's game engine, the one behind scmjs.dev/play: play a replay to its end and get back what happened in it (every unit made, finished and lost, each player's resources, supply and army through the game, where units stood), work out a map's pathing as the game walks it (its regions, and how units get between the start locations), or start a map in a browser tab. It also adds Tools ▸ Test Map in Browser. It holds no engine itself and works where the editor is served beside the play page.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-sim",
       "homepage": "https://github.com/scm-js/plugin-scm-sim",
@@ -175,10 +175,9 @@
         "test map",
         "engine"
       ],
-      "reviewed": "0.6.0",
-      "tag": "v0.6.0",
-      "commit": "42bfae119a93393a608152607805216d25e7a01a",
-      "updated": "2026-10-15T15:11:25Z",
+      "tag": "v0.7.0",
+      "commit": "595e9863c0831de9f9d4e3ac037cd511b67eb55a",
+      "updated": "2026-10-16T01:27:33Z",
       "default": true
     },
     {
