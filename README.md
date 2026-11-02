@@ -1,160 +1,105 @@
 # scm-js plugin registry
 
-The list of plugins [scm-js](https://github.com/scm-js/scm-js) offers to install. The
-editor fetches [`index.json`](index.json) when you open **Plugins ▸ Browse Plugins…**,
-searches it, and installs from it.
+The list of plugins that [scmJS](https://github.com/scm-js/scm-js) offers to install. When you
+open **Plugins ▸ Browse Plugins…**, the editor fetches [`index.json`](index.json) from this
+repository, searches it, and installs from it.
 
-`index.json` is generated. Which repositories are plugins is asked of GitHub: every
-public, non-archived repository in the [scm-js](https://github.com/scm-js) organisation
-that is either **named `plugin-…`** or carries both the `scmjs` and `plugin` topics. Everything an entry says about a
-plugin is read from the plugin itself — name, version, description, author and icon come
-from its own `plugin.json` — so nothing here can drift from what its author wrote.
-[`plugins.json`](plugins.json) holds only what the topics cannot say: search tags, which
-plugins the editor ships as defaults, repositories outside the organisation, and anything
-to leave out.
+`index.json` is generated. A plugin's name, version, description, author and icon are read
+from the plugin's own `plugin.json`, so the list always says what the plugin's author wrote.
+[`plugins.json`](plugins.json) holds only what the plugins cannot say for themselves: search
+tags, which plugins the editor ships as defaults, repositories outside the organisation, and
+repositories to leave out.
 
-Written a plugin somewhere else? [Submit it](#submitting-a-plugin). It is one issue form,
-and a bot replies with what it found before anyone reads it.
+## Getting a plugin listed
 
-## Which commit an entry describes
+### Inside the scm-js organisation
 
-The newest semver tag is the release. An entry's `commit`, `version` and `updated` come
-from that tag, so pushing to a plugin's default branch does not change what Browse shows
-until you tag it. A repository that has never been tagged falls back to its default
-branch, which is what makes a brand new plugin appear before its first release.
+Name the repository `plugin-something`. Any public, non-archived repository in the
+[scm-js](https://github.com/scm-js) organisation with a readable `plugin.json` is listed if
+its name starts with `plugin-` or it has both the `scmjs` and `plugin` topics. Nobody has to
+approve it. Add it to `exclude` in `plugins.json` to keep it out.
 
-The tag never reaches `spec`, which stays floating (`github:owner/name`). The editor
-matches a Browse row against the installed list by that string, and a spec carrying
-`@v1.0.0` would not match the same plugin installed from its branch. So `commit` and
-`tag` describe the release; the pin an install actually takes is resolved at install
-time and may be newer.
+### From anywhere else
 
-## Reviewed
+1. [Open a submission](https://github.com/scm-js/registry/issues/new?template=submit-plugin.yml).
+   The form asks for the repository (`owner/name` or its address), the folder holding
+   `plugin.json` if it is not at the top, and up to eight search tags. Tick the four boxes
+   at the bottom.
+2. A bot replies within a minute with what it found. If something blocks the listing, fix it
+   and edit the issue. The bot checks again and rewrites the same comment.
+3. A maintainer reads the code and adds the `approved` label. This opens a pull request that
+   adds your entry to `plugins.json`.
+4. When the pull request is merged, the plugin appears in Browse within the hour.
 
-Being listed is automatic. Being **reviewed** is not: it means someone here read that
-plugin's code at that release, and it is the only thing in the index that carries any
-judgement about a plugin.
+There is nothing to repeat on the form and nothing to keep up to date here afterwards. Your
+plugin's details are read from `plugin.json` at your newest version tag.
 
-A review is of code, not of a repository, so `reviewed` in `plugins.json` names the
-version or commit that was read:
+The bot uses [`scripts/check-submission.mjs`](scripts/check-submission.mjs), which reads your
+repository the same way the index build does. What it reports is what the index will say.
+
+These findings block a listing:
+
+- no `plugin.json` at the release commit (or in the folder you named)
+- a repository GitHub will not serve to an anonymous visitor (private, or misspelled)
+- an entry file that `plugin.json` names but that is not there, or no entry file at all
+- an `api` newer than the editor supports (it supports 1)
+- a repository that is already listed, or is on the `exclude` list
+- boxes on the form left unticked
+
+These are worth fixing but do not block it: no version tag yet, no `author` or other manifest
+field, no `api`, no licence, a minified bundle, an archived repository or a fork.
+
+You can run the same check before you submit:
+
+```sh
+node scripts/check-submission.mjs owner/name --tags terrain,tools
+node scripts/check-submission.mjs owner/name --dir plugins/my-plugin
+```
+
+## What being listed means
+
+Being listed means the editor will offer the plugin. It does not mean anyone has read the
+code. A plugin runs with the same privileges as the editor and can read and change the open
+map. Installing from Browse shows the same confirmation as pasting an address by hand: the
+manifest, the addresses the code comes from, the commit being pinned, and the warning.
+
+### Reviewed
+
+A plugin marked *reviewed* is one where someone here read the code of that release. In
+`plugins.json`, `reviewed` names the version or commit that was read:
 
 ```json
 { "repo": "scm-js/plugin-paint", "reviewed": "1.0.0" }
 ```
 
-The build keeps the mark only while it still describes what is being listed. Tag a new
-release and the mark disappears until someone reads it again and bumps the number — a
-mark that outlived its own release would vouch for code nobody has seen, which is worse
-than no mark. A commit (`"reviewed": "e869fa0"`) is the stronger form: a version
-identifies the code only as well as its tag does, and a tag can be moved.
+The mark only lasts while it describes the release being listed. When a new release is
+tagged, the mark is dropped until someone reads the code again and updates the value. A
+commit hash (`"reviewed": "e869fa0"`) is the stronger form, since a tag can be moved.
 
-It is still not a safety guarantee, and it is not a sandbox. It says a person read it.
+A review says a person read the code. It is not a safety guarantee.
 
-## What being listed means
+## Which release an entry describes
 
-It means the editor will *offer* the plugin. It is not a review, and it is not a sandbox:
-a plugin runs with the same privileges as the editor, and can read and change the map you
-have open. Installing one from Browse goes through exactly the same confirmation as
-pasting its address by hand — the manifest, the addresses the code will be fetched from,
-the commit being pinned, and the warning. The registry decides what appears in the list,
-never what is trusted.
+The newest semver tag is the release. An entry's `commit`, `version` and `updated` come from
+that tag, so a push to the default branch does not change what Browse shows until you tag
+it. A repository with no tags is read from its default branch, so a new plugin appears before
+its first release.
 
-## Submitting a plugin
+An entry's `spec` never carries the tag (`github:owner/name`). The editor matches Browse rows
+against installed plugins by that string. The version an install pins is worked out at
+install time, and may be newer than the entry's `tag`.
 
-**[Open a submission](https://github.com/scm-js/registry/issues/new?template=submit-plugin.yml)**
-and give it your repository. That is all of it. The form asks for the address, the folder if
-the plugin is not at the top of the repository, and the words you want the editor's search to
-match. Your plugin's name, version, description, author and icon are read from your own
-`plugin.json` at your newest version tag, so there is nothing to repeat on the form and
-nothing to keep up to date here afterwards.
+If a plugin repository stops answering, its last known entry is kept.
 
-A bot replies within a minute, in one comment that it rewrites every time you edit the issue.
-It reads your repository with [`scripts/check-submission.mjs`](scripts/check-submission.mjs),
-which resolves it the same way the index build does: the same release rule, the same manifest,
-the same look for the file the editor would import. So what it tells you is what the index
-will say about your plugin, rather than a second opinion written beside it.
+## When the index rebuilds
 
-It separates two kinds of finding. Blocking ones make a row impossible: no `plugin.json` at
-that commit, a repository GitHub will not serve anonymously, an entry file that is not there,
-an `api` newer than the editor implements. The rest are worth fixing but do not stop anything:
-no version tag yet, no author, no licence, a minified bundle.
+- every hour
+- on a push to `plugins.json` or the build script
+- on demand (**Actions ▸ Build index ▸ Run workflow**)
+- when a plugin repository says it changed
 
-Passing is not being accepted. Someone here then reads the code and adds the `approved` label,
-which opens the pull request that adds your entry; merging it puts the plugin in Browse within
-the hour. That step is a person on purpose. Inside the organisation listing is automatic,
-because every repository there is the project's own. From anywhere else it is a decision,
-because this list is what the editor offers and a plugin runs unsandboxed.
-
-You can run the same check before submitting anything:
-
-```sh
-node scripts/check-submission.mjs owner/name --tags terrain,tools
-```
-
-## Adding a plugin by hand
-
-For a repository in the scm-js organisation, name it `plugin-something`. That is the
-whole step. Giving it the `scmjs` and `plugin` topics works too, for a plugin whose name
-does not start that way — either signal is enough, because the two get forgotten at
-different rates and only one of them has to be remembered.
-
-The consequence is that listing is opt-*out*: a repository named like a plugin, with a
-readable `plugin.json`, is published without anyone here saying so. `exclude` is what
-holds one back. Being listed therefore says nothing about the code having been read.
-
-An entry in `plugins.json` is what the submission flow above writes. Edit one by hand to
-give a plugin tags, to change a listing, or to add a repository without an issue:
-
-```json
-{
-  "repo": "owner/name",
-  "dir": "plugins/my-plugin",
-  "tags": ["terrain", "tools"],
-  "default": false
-}
-```
-
-- `repo` — the GitHub repository, `owner/name`. Required.
-- `dir` — the folder holding `plugin.json`, when it is not the repository root.
-- `tags` — words the editor's search matches on, besides the name and description.
-- `default` — true only for the plugins the editor ships with (`src/plugins/defaults.ts`);
-  it is what puts the *default* badge on the row.
-- `reviewed` — the version or commit whose code was read. See **Reviewed** above.
-
-An entry for a repository the topics already found is an override: it adds the tags and
-the default flag, and the plugin is still listed once. `exclude` is the other way round —
-a list of `owner/name` to leave out however they are found.
-
-The plugin needs a `plugin.json` with at least a `name`, and should carry `version`,
-`description`, `author` and `icon`. See
-[`docs/plugins.md`](https://github.com/scm-js/scm-js/blob/main/docs/plugins.md).
-
-A plugin that stops answering keeps its last known entry rather than disappearing on a
-network blink.
-
-## Running the submission workflow yourself
-
-[`submission.yml`](.github/workflows/submission.yml) uses four labels. `submission` is applied
-by the issue form. `approved` is added by a maintainer, and is the only thing that writes
-anything. `submission:passing` and `submission:blocked` are set by the check, so a list of open
-submissions can be read at a glance. GitHub silently drops a label that does not exist, so on a
-fork run the workflow once by hand (**Actions ▸ Submission ▸ Run workflow**) and its `labels`
-job creates all four.
-
-The job that opens the pull request needs *Allow GitHub Actions to create and approve pull
-requests*, which is off by default and is set in two places: the organisation's Actions
-settings first, then the repository's, which does not inherit it.
-
-Who may approve is GitHub's own answer. Only someone with triage or write access on the
-repository can label an issue, so the label is the authorisation and the workflow checks
-nothing else. It does run the check again before writing, because an issue can be edited after
-it was read.
-
-## When it rebuilds
-
-Hourly, on a push to `plugins.json` or the generator, on demand, and whenever a plugin
-repository says it changed. That last one is [`notify.yml`](.github/workflows/notify.yml),
-which each plugin repository calls from a workflow of its own:
+For the last one, a plugin repository calls [`notify.yml`](.github/workflows/notify.yml) from
+a workflow of its own:
 
 ```yaml
 name: Notify registry
@@ -168,19 +113,49 @@ jobs:
     secrets: inherit
 ```
 
-It exists because a repository's own `GITHUB_TOKEN` cannot start a workflow in another
-repository. `REGISTRY_PAT` is an organisation secret holding a fine-grained token with
-`Contents: write` on this repository and nothing else; `secrets: inherit` is what passes
-it through. Anything with write access here can do the same by hand:
+A repository's own `GITHUB_TOKEN` cannot start a workflow in another repository. So
+`REGISTRY_PAT`, an organisation secret, holds a fine-grained token with `Contents: write` on
+this repository and nothing else. `secrets: inherit` passes it through. Anyone with write
+access here can do the same by hand:
 
 ```sh
 gh api repos/scm-js/registry/dispatches -f event_type=plugin-updated
 ```
 
-None of this is load-bearing — the hourly schedule picks every change up anyway. It only
-shortens the wait from up to an hour to about a minute.
+The hourly rebuild picks up every change anyway. Notifying only cuts the wait to about a
+minute.
 
-## The file
+## plugins.json
+
+The submission flow writes entries here. Edit one by hand to give a plugin tags, change a
+listing, or add a repository without an issue:
+
+```json
+{
+  "repo": "owner/name",
+  "dir": "plugins/my-plugin",
+  "tags": ["terrain", "tools"],
+  "default": false
+}
+```
+
+| Field | Meaning |
+| --- | --- |
+| `repo` | The GitHub repository, `owner/name`. Required. |
+| `dir` | The folder holding `plugin.json`, when it is not the repository root. |
+| `tags` | Words the editor's search matches, besides the name and description. |
+| `default` | True only for plugins the editor ships with. It puts the *default* badge on the row. |
+| `reviewed` | The version or commit whose code was read. See [Reviewed](#reviewed). |
+
+An entry for a repository that is already found by name or topic adds its tags and default
+flag. The plugin is still listed once. `exclude` is a list of `owner/name` to leave out,
+however they are found.
+
+A plugin needs a `plugin.json` with at least a `name`, and should have `version`,
+`description`, `author` and `icon`. The
+[plugin guide](https://docs.scmjs.dev/plugins/writing-a-plugin/) describes the manifest.
+
+## The index file
 
 ```jsonc
 {
@@ -208,31 +183,49 @@ shortens the wait from up to an hour to about a minute.
 }
 ```
 
-`spec` is the only field the editor installs from, and it is an ordinary plugin address:
-anything you could paste into **Plugins ▸ Manage Plugins**. An entry with no `tag` is one
-read from a repository that has never been tagged.
+The editor installs from `spec` only. It is an ordinary plugin address, the same as anything
+you could paste into **Plugins ▸ Manage Plugins…**. An entry with no `tag` comes from a
+repository that has never been tagged.
 
-Unknown fields are ignored, and an entry the editor cannot use is skipped rather than
-breaking the list.
+The editor ignores unknown fields and skips an entry it cannot use.
 
 ## Another registry
 
-Nothing about this repository is special. Any URL serving a file of that shape is a
-registry: put one anywhere the browser can read it (with CORS), and add it under
-**Browse ▸ Sources** in the editor. A fork with its own plugins does that rather than
-patching the editor.
+Any URL serving a file of that shape is a registry. Put one anywhere the browser can read it
+(with CORS) and add it under **Sources** in the editor's Browse Plugins dialog. A fork with its
+own plugins can do this without changing the editor.
+
+## Running the submission workflow
+
+[`submission.yml`](.github/workflows/submission.yml) uses four labels:
+
+- `submission`, applied by the issue form
+- `approved`, added by a maintainer, and the only step that writes anything
+- `submission:passing` and `submission:blocked`, set by the check
+
+GitHub drops a label that does not exist. On a fork, run the workflow once by hand
+(**Actions ▸ Submission ▸ Run workflow**) and its `labels` job creates all four.
+
+The job that opens the pull request needs *Allow GitHub Actions to create and approve pull
+requests*. It is off by default and has to be turned on in two places: the organisation's
+Actions settings first, then the repository's, which does not inherit it.
+
+Only someone with triage or write access on the repository can label an issue, so the label
+is the approval. The workflow runs the check again before writing, in case the issue was
+edited after it was read.
 
 ## Building it locally
 
 ```sh
-node scripts/build-index.mjs                       # rewrites index.json if an entry changed
-node scripts/check-submission.mjs owner/name       # what a submission of that repository would say
-node scripts/check-submission.mjs --body-file issue.md   # the same, read off a filled-in form
+node scripts/build-index.mjs                             # rewrites index.json if an entry changed
+node scripts/check-submission.mjs owner/name             # what a submission of that repository would say
+node scripts/check-submission.mjs --body-file issue.md   # the same, read from a filled-in form
 GITHUB_TOKEN=$(gh auth token) node scripts/build-index.mjs   # higher API rate limits
 ```
 
-Both read a plugin repository through [`scripts/lib/plugins.mjs`](scripts/lib/plugins.mjs),
-the only thing here that knows the release rule and how an entry is built. They share it so
-that a submitter cannot be told one thing and the index publish another.
+Both scripts read a plugin repository through [`scripts/lib/plugins.mjs`](scripts/lib/plugins.mjs),
+so a submitter is told the same thing the index publishes.
+
+## License
 
 MIT, like the editor.
