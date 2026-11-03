@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-11-03T06:51:52.770Z",
+  "generated": "2026-11-03T21:01:51.634Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -147,8 +147,8 @@
     {
       "spec": "github:scm-js/plugin-scm-sim",
       "name": "scm-sim",
-      "version": "0.11.0",
-      "description": "A library that lets other plugins use the site's game engine, the one behind scmjs.dev/play: play a replay to its end and get back what happened in it (every unit made, finished and lost, each player's resources, supply and army through the game, where units stood), work out a map's pathing as the game walks it (its regions, and how units get between the start locations), measure groups through chokes and each base's mining, or start a map in a browser tab. It also adds Tools ▸ Test Map in Browser. It holds no engine itself and works where the editor is served beside the play page.",
+      "version": "0.12.0",
+      "description": "A library that lets other plugins use the site's game engine, the one behind scmjs.dev/play: play a replay to its end and get back what happened in it (every unit made, finished and lost, each player's resources, supply and army through the game, where units stood), work out a map's pathing as the game walks it (its regions, and how units get between the start locations), measure groups through chokes and each base's mining, or start a map in a browser tab. It also adds Test in Browser, a choice beside StarCraft for Tools ▸ Test Map. It holds no engine itself and works where the editor is served beside the play page.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-sim",
       "homepage": "https://github.com/scm-js/plugin-scm-sim",
@@ -161,9 +161,9 @@
         "test map",
         "engine"
       ],
-      "tag": "v0.11.0",
-      "commit": "6e31a132193b77138668f9a462f29c4ce4331c4b",
-      "updated": "2026-10-19T18:32:43Z",
+      "tag": "v0.12.0",
+      "commit": "fa071725afd1d3bcc48f834701b7c37a1a4f3a5b",
+      "updated": "2026-11-03T20:38:49Z",
       "default": true
     },
     {
