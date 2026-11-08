@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-11-07T20:55:03.570Z",
+  "generated": "2026-11-08T07:24:10.044Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -334,7 +334,7 @@
     {
       "spec": "github:scm-js/plugin-trigscript",
       "name": "TrigScript",
-      "version": "4.1.1",
+      "version": "4.2.0",
       "description": "TypeScript kept inside the map. Ordinary TypeScript — files, imports, helpers, loops — runs when the script is applied and records one trigger per trigger() call: ordinary triggers that play on every version. Code inside program(() => { … }) runs in the game — variables, loops, functions, sleep — and is built into the map by TrigScript itself when you save; a map with a program needs StarCraft: Remastered. Checked as you type against the map's own names, with a built-in simulator.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigscript",
@@ -346,9 +346,9 @@
         "scripting",
         "typescript"
       ],
-      "tag": "v4.1.1",
-      "commit": "8a8563e91c813b423bf0d40269e8564eb68ff9bf",
-      "updated": "2026-11-07T19:35:35Z",
+      "tag": "v4.2.0",
+      "commit": "83934e6ae700482c6f51a01216509067e3fbfb27",
+      "updated": "2026-11-08T01:06:03Z",
       "default": true
     },
     {
