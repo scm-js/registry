@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-11-08T07:24:10.044Z",
+  "generated": "2026-11-08T15:15:07.233Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -102,6 +102,19 @@
       "tag": "v1.1.0",
       "commit": "f2c615c225cbbbd47380b0ce9cdcb4cfbd029181",
       "updated": "2026-09-26T22:13:34Z"
+    },
+    {
+      "spec": "github:scm-js/plugin-mods",
+      "name": "Mod Editor",
+      "version": "0.1.0",
+      "description": "Open a mod (a folder, an .mpq, a mod's .exe or a .zip) and edit its tables, strings, animation scripts and AI scripts beside the map. The editor draws with the mod's files as you change them: change a unit's hit points and the Unit Settings default follows. Save as an MPQ or as a folder of text, see what changed, check it, and play it on the play page.",
+      "author": "Jeany",
+      "repo": "https://github.com/scm-js/plugin-mods",
+      "homepage": "https://github.com/scm-js/plugin-mods",
+      "icon": "icon.svg",
+      "api": 1,
+      "commit": "6e188bc42b289302514dab18362ce9fde0fa6137",
+      "updated": "2026-11-08T14:08:31Z"
     },
     {
       "spec": "github:scm-js/plugin-paint",
