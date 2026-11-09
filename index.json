@@ -2,7 +2,7 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-11-09T10:55:42.843Z",
+  "generated": "2026-11-09T17:43:35.523Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
@@ -113,8 +113,8 @@
       "homepage": "https://github.com/scm-js/plugin-mods",
       "icon": "icon.svg",
       "api": 1,
-      "commit": "6e188bc42b289302514dab18362ce9fde0fa6137",
-      "updated": "2026-11-08T14:08:31Z"
+      "commit": "859d02b10ff595113da2dd0211c0a1bfc88a140c",
+      "updated": "2026-11-09T17:43:04Z"
     },
     {
       "spec": "github:scm-js/plugin-paint",
