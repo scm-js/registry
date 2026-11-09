@@ -2,12 +2,12 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-11-09T04:20:56.418Z",
+  "generated": "2026-11-09T10:55:42.843Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
       "name": "Aftermath",
-      "version": "0.19.0",
+      "version": "0.20.0",
       "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back. At scmjs.dev it also shows the game itself in the map's place, played by the game's own code with its own graphics, and plays it through to show what happened: the units where they stood, what was really built and lost, and each player's army, economy and tech through the game.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-aftermath",
@@ -21,9 +21,9 @@
         "analysis",
         "melee"
       ],
-      "tag": "v0.19.0",
-      "commit": "bc39df7772d440366cfc24a5b9814b87e08cd857",
-      "updated": "2026-11-09T00:30:01Z"
+      "tag": "v0.20.0",
+      "commit": "281973c64655c3fb60d056d781f84860d1af9819",
+      "updated": "2026-11-09T04:20:42Z"
     },
     {
       "spec": "github:scm-js/plugin-api-playground",
@@ -66,7 +66,7 @@
     {
       "spec": "github:scm-js/plugin-magenta",
       "name": "Magenta",
-      "version": "0.12.1",
+      "version": "0.12.2",
       "description": "A trigger editor for map makers: every trigger reads as a sentence with its parameters as chips, one search box adds any condition or action, and the map is the picker. Carries a catalogue of Remastered EUD conditions and actions that look and behave like the game's own.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-magenta",
@@ -80,14 +80,14 @@
         "remastered",
         "build"
       ],
-      "tag": "v0.12.1",
-      "commit": "b8b22013e224388086a105fc0de62ff35ecbce94",
-      "updated": "2026-11-02T15:22:47Z"
+      "tag": "v0.12.2",
+      "commit": "9e07d4590fbde8d1f15dbb99d0875034adc2bd26",
+      "updated": "2026-11-09T04:20:53Z"
     },
     {
       "spec": "github:scm-js/plugin-melee-wizard",
       "name": "Melee Wizard",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "description": "Builds a ladder-style map's bases in one action each: symmetric start locations for 2, 4 or 8 players, and mineral lines with the geyser laid out on the three-tile ring the game mines fastest from, mirrored to every player. Also mirrors what you select and checks the map's symmetry.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-melee-wizard",
@@ -99,9 +99,9 @@
         "start locations",
         "bases"
       ],
-      "tag": "v1.1.0",
-      "commit": "f2c615c225cbbbd47380b0ce9cdcb4cfbd029181",
-      "updated": "2026-09-26T22:13:34Z"
+      "tag": "v1.1.1",
+      "commit": "e4c7b806e2756a26f089d99dc775dbc43ed15e1c",
+      "updated": "2026-11-09T04:20:41Z"
     },
     {
       "spec": "github:scm-js/plugin-mods",
@@ -140,7 +140,7 @@
     {
       "spec": "github:scm-js/plugin-repair",
       "name": "Repair",
-      "version": "1.6.2",
+      "version": "1.6.3",
       "description": "Open a map and it repairs what is safe to repair: pieces missing or damaged, the tricks protected maps play, terrain the editor cannot edit. What is a judgement call waits in the status bar, each problem saying what the game makes of the map as it stands and what fixing it would change. Undo puts the file back as it opened.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-repair",
@@ -152,15 +152,15 @@
         "protection",
         "sections"
       ],
-      "tag": "v1.6.2",
-      "commit": "7756de6f504904b03bcdce9f83d81eea4f5949a5",
-      "updated": "2026-10-15T06:15:57Z",
+      "tag": "v1.6.3",
+      "commit": "b79320e4ef7549a86cdbf3fe587ef6dc64aad128",
+      "updated": "2026-11-09T04:20:37Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-scm-sim",
       "name": "scm-sim",
-      "version": "0.17.0",
+      "version": "0.18.0",
       "description": "A library that lets other plugins use the site's game engine, the one behind scmjs.dev/play: play a replay to its end and get back what happened in it (every unit made, finished and lost, each player's resources, supply and army through the game, where units stood), work out a map's pathing as the game walks it (its regions, and how units get between the start locations), measure groups through chokes and each base's mining, or start a map in a browser tab. It also adds Test in Browser, a choice beside StarCraft for Tools ▸ Test Map. It holds no engine itself and works where the editor is served beside the play page.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-sim",
@@ -174,9 +174,9 @@
         "test map",
         "engine"
       ],
-      "tag": "v0.17.0",
-      "commit": "8d87b872b1f777f707bc840d04376e09c7c8f3ef",
-      "updated": "2026-11-09T00:32:32Z",
+      "tag": "v0.18.0",
+      "commit": "69aefc744140740a86330debe2909755dae50a63",
+      "updated": "2026-11-09T04:20:37Z",
       "default": true
     },
     {
@@ -224,7 +224,7 @@
     {
       "spec": "github:scm-js/plugin-section-explorer",
       "name": "Section Explorer",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "description": "A hex editor that knows the map file. Every section of the scenario, its bytes, and what each byte is: records, fields, flags, and the names behind the numbers. Edit at the byte or at the field.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-section-explorer",
@@ -236,9 +236,9 @@
         "hex",
         "file format"
       ],
-      "tag": "v1.2.0",
-      "commit": "8cd938588d88eaa71f08f0981f6394c22deee131",
-      "updated": "2026-11-03T06:51:02Z"
+      "tag": "v1.2.1",
+      "commit": "6747582cdd6445a10cf350a1bc5e6430662ed0cb",
+      "updated": "2026-11-09T04:20:46Z"
     },
     {
       "spec": "github:scm-js/plugin-stamp-library",
@@ -347,7 +347,7 @@
     {
       "spec": "github:scm-js/plugin-trigscript",
       "name": "TrigScript",
-      "version": "4.2.0",
+      "version": "4.3.0",
       "description": "TypeScript kept inside the map. Ordinary TypeScript — files, imports, helpers, loops — runs when the script is applied and records one trigger per trigger() call: ordinary triggers that play on every version. Code inside program(() => { … }) runs in the game — variables, loops, functions, sleep — and is built into the map by TrigScript itself when you save; a map with a program needs StarCraft: Remastered. Checked as you type against the map's own names, with a built-in simulator.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-trigscript",
@@ -359,15 +359,15 @@
         "scripting",
         "typescript"
       ],
-      "tag": "v4.2.0",
-      "commit": "83934e6ae700482c6f51a01216509067e3fbfb27",
-      "updated": "2026-11-08T01:06:03Z",
+      "tag": "v4.3.0",
+      "commit": "a92989b3d270ca6f3812d8457f335dc20e9cd6fa",
+      "updated": "2026-11-09T04:36:00Z",
       "default": true
     },
     {
       "spec": "github:scm-js/plugin-walkability",
       "name": "Walkability",
-      "version": "1.4.0",
+      "version": "1.4.1",
       "description": "Reads the ground the way a unit does: islands, unreachable pockets, the areas a map divides into and the chokes between them with their widths, cliff seams with no ramp, and the ground distance between every pair of start locations, drawn over the map. At scmjs.dev it can also have the game itself walk the map, with the game's own regions and pathfinding, time groups through the chokes, and measure each base's mining.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-walkability",
@@ -379,9 +379,9 @@
         "melee",
         "overlay"
       ],
-      "tag": "v1.4.0",
-      "commit": "713454a65b98ceb81f33035bea6b77c6947b75e2",
-      "updated": "2026-10-16T03:03:27Z",
+      "tag": "v1.4.1",
+      "commit": "1683786b1eb74e4b9f54f74f9c2bcad94f8e3da3",
+      "updated": "2026-11-09T04:20:51Z",
       "default": true
     }
   ]
