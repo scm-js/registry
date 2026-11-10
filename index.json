@@ -2,12 +2,12 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-11-10T17:53:24.030Z",
+  "generated": "2026-11-10T23:25:13.818Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
       "name": "Aftermath",
-      "version": "0.22.3",
+      "version": "0.24.0",
       "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back. At scmjs.dev it also shows the game itself in the map's place, played by the game's own code with its own graphics, and plays it through to show what happened: the units where they stood, what was really built and lost, and each player's army, economy and tech through the game.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-aftermath",
@@ -21,9 +21,9 @@
         "analysis",
         "melee"
       ],
-      "tag": "v0.22.3",
-      "commit": "dbee2c94ac34748aa4edf882dac051688b1f1c48",
-      "updated": "2026-11-10T15:58:04Z"
+      "tag": "v0.24.0",
+      "commit": "5efbf6fbeea0d4dc3f3591caf07f86d20aa9ab7a",
+      "updated": "2026-11-10T23:01:48Z"
     },
     {
       "spec": "github:scm-js/plugin-api-playground",
@@ -106,16 +106,16 @@
     {
       "spec": "github:scm-js/plugin-mods",
       "name": "Mod Editor",
-      "version": "0.3.1",
+      "version": "0.4.0",
       "description": "Open a mod (a folder, an .mpq, a mod's .exe or a .zip) and edit its tables, strings, animation scripts and AI scripts beside the map. The editor draws with the mod's files as you change them: change a unit's hit points and the Unit Settings default follows. Save as an MPQ or as a folder of text, see what changed, check it, and play it on the play page.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-mods",
       "homepage": "https://github.com/scm-js/plugin-mods",
       "icon": "icon.svg",
       "api": 1,
-      "tag": "v0.3.1",
-      "commit": "a2b6a3397415f169e05e525a8e7955e529c92792",
-      "updated": "2026-11-10T02:09:29Z"
+      "tag": "v0.4.0",
+      "commit": "60381ecf6ff0bdce354feeba0255bba3857f2ee8",
+      "updated": "2026-11-10T20:43:26Z"
     },
     {
       "spec": "github:scm-js/plugin-paint",
@@ -161,7 +161,7 @@
     {
       "spec": "github:scm-js/plugin-scm-sim",
       "name": "scm-sim",
-      "version": "0.19.2",
+      "version": "0.20.1",
       "description": "A library that lets other plugins use the site's game engine, the one behind scmjs.dev/play: play a replay to its end and get back what happened in it (every unit made, finished and lost, each player's resources, supply and army through the game, where units stood), work out a map's pathing as the game walks it (its regions, and how units get between the start locations), measure groups through chokes and each base's mining, or start a map in a browser tab. It also adds Test in Browser, a choice beside StarCraft for Tools ▸ Test Map. It holds no engine itself and works where the editor is served beside the play page.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-scm-sim",
@@ -175,9 +175,9 @@
         "test map",
         "engine"
       ],
-      "tag": "v0.19.2",
-      "commit": "b89b622af5c4847cb42148cbfe01b1232542b1fd",
-      "updated": "2026-11-10T12:44:56Z",
+      "tag": "v0.20.1",
+      "commit": "e9d8243e089c5d5c13fe53706d3861ce75bb8e61",
+      "updated": "2026-11-10T23:01:59Z",
       "default": true
     },
     {
