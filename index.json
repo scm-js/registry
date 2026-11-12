@@ -2,12 +2,12 @@
   "format": 1,
   "name": "scm-js plugins",
   "description": "The plugins published by the scm-js project.",
-  "generated": "2026-11-10T23:25:13.818Z",
+  "generated": "2026-11-12T21:08:00.245Z",
   "plugins": [
     {
       "spec": "github:scm-js/plugin-aftermath",
       "name": "Aftermath",
-      "version": "0.24.0",
+      "version": "0.25.0",
       "description": "Opens StarCraft replays over the map they were played on: where buildings went down and when, where units were sent, heat maps of the orders across one game or many, build orders, actions per minute and chat, on a timeline that plays back. At scmjs.dev it also shows the game itself in the map's place, played by the game's own code with its own graphics, and plays it through to show what happened: the units where they stood, what was really built and lost, and each player's army, economy and tech through the game.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-aftermath",
@@ -21,9 +21,9 @@
         "analysis",
         "melee"
       ],
-      "tag": "v0.24.0",
-      "commit": "5efbf6fbeea0d4dc3f3591caf07f86d20aa9ab7a",
-      "updated": "2026-11-10T23:01:48Z"
+      "tag": "v0.25.0",
+      "commit": "ec1c819c5d043187283b5d30b489e54fd2a058fd",
+      "updated": "2026-11-12T21:00:55Z"
     },
     {
       "spec": "github:scm-js/plugin-api-playground",
@@ -106,16 +106,16 @@
     {
       "spec": "github:scm-js/plugin-mods",
       "name": "Mod Editor",
-      "version": "0.4.0",
+      "version": "0.5.0",
       "description": "Open a mod (a folder, an .mpq, a mod's .exe or a .zip) and edit its tables, strings, animation scripts and AI scripts beside the map. The editor draws with the mod's files as you change them: change a unit's hit points and the Unit Settings default follows. Save as an MPQ or as a folder of text, see what changed, check it, and play it on the play page.",
       "author": "Jeany",
       "repo": "https://github.com/scm-js/plugin-mods",
       "homepage": "https://github.com/scm-js/plugin-mods",
       "icon": "icon.svg",
       "api": 1,
-      "tag": "v0.4.0",
-      "commit": "60381ecf6ff0bdce354feeba0255bba3857f2ee8",
-      "updated": "2026-11-10T20:43:26Z"
+      "tag": "v0.5.0",
+      "commit": "805ef127818188b1a27015fa88519e1bb43f4669",
+      "updated": "2026-11-12T21:01:00Z"
     },
     {
       "spec": "github:scm-js/plugin-paint",
